@@ -577,15 +577,15 @@
                     </div>
                 </div>
 
-                <form class="contact-form" id="contactForm" onsubmit="event.preventDefault();">
+                <form class="contact-form" id="contactForm" action="https://formsubmit.co/ajax/b.gencater@gmail.com" method="POST" onsubmit="event.preventDefault();">
                     <div class="form-group">
-                        <input type="text" id="contactName" placeholder="Adınız Soyadınız" required>
+                        <input type="text" id="contactName" name="name" placeholder="Adınız Soyadınız" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="contactEmail" placeholder="E-Posta Adresiniz" required>
+                        <input type="email" id="contactEmail" name="email" placeholder="E-Posta Adresiniz" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="contactMessage" placeholder="Projenizden veya mesajınızdan bahsedin..." required></textarea>
+                        <textarea id="contactMessage" name="message" placeholder="Projenizden veya mesajınızdan bahsedin..." required></textarea>
                     </div>
                     <button type="button" onclick="gonder()" class="btn btn-primary" style="width: 100%;">Mesaj Gönder</button>
                     <div id="formStatus" class="form-status"></div>
@@ -625,7 +625,7 @@
             }
         });
 
-        // Discord Webhook Form Submission
+        // FormSubmit.co Form Submission
         function gonder() {
             const isim = document.getElementById('contactName').value;
             const mail = document.getElementById('contactEmail').value;
@@ -643,19 +643,16 @@
             formStatus.className = 'form-status';
             formStatus.style.display = 'none';
 
-            fetch('https://discordapp.com/api/webhooks/1508671145874821181/BPQsoh12tGgd-_y1XppJBkMkW1TW4YCEQS7Z59Md8tK1mT1n3ylE72R6KOWy1EMp38Gj', {
+            fetch('https://formsubmit.co/ajax/b.gencater@gmail.com', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
                 body: JSON.stringify({
-                    embeds: [{
-                        title: "Cacarov Project - Yeni Mesaj!",
-                        fields: [
-                            { name: "Gönderen", value: isim },
-                            { name: "E-Posta", value: mail },
-                            { name: "Mesaj", value: mesaj }
-                        ],
-                        color: 5814783
-                    }]
+                    name: isim,
+                    email: mail,
+                    message: mesaj
                 })
             })
             .then(response => {
@@ -666,11 +663,11 @@
                     formStatus.textContent = 'Mesajınız başarıyla gönderildi!';
                     formStatus.className = 'form-status success';
                     document.getElementById('contactForm').reset();
-                    alert('Mesaj başarıyla gitti kanka!');
+                    alert('Mesaj başarıyla gönderildi kanka!');
                 } else {
                     formStatus.textContent = 'Mesaj gönderilemedi!';
                     formStatus.className = 'form-status error';
-                    alert('Hata oluştu, webhook yanıt vermedi.');
+                    alert('Hata oluştu, mesaj iletilemedi.');
                 }
             })
             .catch(error => {
