@@ -626,63 +626,75 @@
         });
 
         // Discord Webhook Form Submission
-        const contactForm = document.getElementById('contactForm');
-        const formStatus = document.getElementById('formStatus');
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contactForm');
+            const formStatus = document.getElementById('formStatus');
 
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('contactName').value;
-            const email = document.getElementById('contactEmail').value;
-            const message = document.getElementById('contactMessage').value;
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            if (contactForm) {
+                contactForm.addEventListener('submit', async (e) => {
+                    // Prevent page reload immediately
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('contactName').value;
+                    const email = document.getElementById('contactEmail').value;
+                    const message = document.getElementById('contactMessage').value;
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
 
-            // Reset status
-            formStatus.className = 'form-status';
-            formStatus.style.display = 'none';
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Gönderiliyor...';
+                    // Reset status UI
+                    formStatus.className = 'form-status';
+                    formStatus.style.display = 'none';
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Gönderiliyor...';
 
-            const webhookUrl = 'https://discordapp.com/api/webhooks/1508671145874821181/BPQsoh12tGgd-_y1XppJBkMkW1TW4YCEQS7Z59Md8tK1mT1n3ylE72R6KOWy1EMp38Gj';
+                    // Using discord.com endpoint which is preferred and has proper CORS support
+                    const webhookUrl = 'https://discord.com/api/webhooks/1508671145874821181/BPQsoh12tGgd-_y1XppJBkMkW1TW4YCEQS7Z59Md8tK1mT1n3ylE72R6KOWy1EMp38Gj';
 
-            const payload = {
-                embeds: [{
-                    title: '📬 Yeni İletişim Formu Mesajı',
-                    color: 6516977, // #6366F1
-                    fields: [
-                        { name: 'Ad Soyad', value: name, inline: true },
-                        { name: 'E-Posta', value: email, inline: true },
-                        { name: 'Mesaj', value: message }
-                    ],
-                    timestamp: new Date().toISOString(),
-                    footer: {
-                        text: 'Cacarov Project Web Sitesi'
+                    const payload = {
+                        embeds: [{
+                            title: '📬 Yeni İletişim Formu Mesajı',
+                            color: 6516977, // #6366F1
+                            fields: [
+                                { name: 'Ad Soyad', value: name, inline: true },
+                                { name: 'E-Posta', value: email, inline: true },
+                                { name: 'Mesaj', value: message }
+                            ],
+                            timestamp: new Date().toISOString(),
+                            footer: {
+                                text: 'Cacarov Project Web Sitesi'
+                            }
+                        }]
+                    };
+
+                    try {
+                        console.log('Sending request to Discord Webhook...');
+                        const response = await fetch(webhookUrl, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(payload)
+                        });
+
+                        console.log('Discord Webhook response status:', response.status);
+
+                        if (response.ok) {
+                            formStatus.textContent = 'Mesajınız başarıyla gönderildi!';
+                            formStatus.className = 'form-status success';
+                            contactForm.reset();
+                        } else {
+                            const errorText = await response.text();
+                            console.error('Webhook error response:', errorText);
+                            throw new Error('Webhook status error: ' + response.status);
+                        }
+                    } catch (error) {
+                        console.error('Submission failed:', error);
+                        formStatus.textContent = 'Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.';
+                        formStatus.className = 'form-status error';
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Mesaj Gönder';
                     }
-                }]
-            };
-
-            try {
-                const response = await fetch(webhookUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
                 });
-
-                if (response.ok) {
-                    formStatus.textContent = 'Mesajınız başarıyla gönderildi!';
-                    formStatus.className = 'form-status success';
-                    contactForm.reset();
-                } else {
-                    throw new Error('Webhook hatası');
-                }
-            } catch (error) {
-                formStatus.textContent = 'Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.';
-                formStatus.className = 'form-status error';
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Mesaj Gönder';
             }
         });
     </script>
