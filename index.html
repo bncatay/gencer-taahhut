@@ -455,6 +455,30 @@
             .ambient-glow { display: none; }
             .footer-content { flex-direction: column; gap: 30px; text-align: center; }
         }
+
+        /* Form Status Styles */
+        .form-status {
+            margin-top: 15px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            display: none;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .form-status.success {
+            display: block;
+            background: rgba(16, 185, 129, 0.15);
+            color: #10B981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .form-status.error {
+            display: block;
+            background: rgba(239, 68, 68, 0.15);
+            color: #EF4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -553,17 +577,18 @@
                     </div>
                 </div>
 
-                <form class="contact-form" onsubmit="event.preventDefault(); alert('Mesajınız başarıyla gönderildi!');">
+                <form class="contact-form" id="contactForm">
                     <div class="form-group">
-                        <input type="text" placeholder="Adınız Soyadınız" required>
+                        <input type="text" id="contactName" placeholder="Adınız Soyadınız" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="E-Posta Adresiniz" required>
+                        <input type="email" id="contactEmail" placeholder="E-Posta Adresiniz" required>
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Projenizden veya mesajınızdan bahsedin..." required></textarea>
+                        <textarea id="contactMessage" placeholder="Projenizden veya mesajınızdan bahsedin..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Mesaj Gönder</button>
+                    <div id="formStatus" class="form-status"></div>
                 </form>
             </div>
         </section>
@@ -584,8 +609,9 @@
         </div>
     </footer>
 
-    <!-- Basic Script for Header Effect on Scroll -->
+    <!-- Script for Interactions -->
     <script>
+        // Header Scroll Effect
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -596,6 +622,67 @@
                 header.style.padding = '20px 5%';
                 header.style.background = 'rgba(15, 23, 42, 0.7)';
                 header.style.boxShadow = 'none';
+            }
+        });
+
+        // Discord Webhook Form Submission
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const message = document.getElementById('contactMessage').value;
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+            // Reset status
+            formStatus.className = 'form-status';
+            formStatus.style.display = 'none';
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Gönderiliyor...';
+
+            const webhookUrl = 'https://discordapp.com/api/webhooks/1508671145874821181/BPQsoh12tGgd-_y1XppJBkMkW1TW4YCEQS7Z59Md8tK1mT1n3ylE72R6KOWy1EMp38Gj';
+
+            const payload = {
+                embeds: [{
+                    title: '📬 Yeni İletişim Formu Mesajı',
+                    color: 6516977, // #6366F1
+                    fields: [
+                        { name: 'Ad Soyad', value: name, inline: true },
+                        { name: 'E-Posta', value: email, inline: true },
+                        { name: 'Mesaj', value: message }
+                    ],
+                    timestamp: new Date().toISOString(),
+                    footer: {
+                        text: 'Cacarov Project Web Sitesi'
+                    }
+                }]
+            };
+
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    formStatus.textContent = 'Mesajınız başarıyla gönderildi!';
+                    formStatus.className = 'form-status success';
+                    contactForm.reset();
+                } else {
+                    throw new Error('Webhook hatası');
+                }
+            } catch (error) {
+                formStatus.textContent = 'Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.';
+                formStatus.className = 'form-status error';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Mesaj Gönder';
             }
         });
     </script>
