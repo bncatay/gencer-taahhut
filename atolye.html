@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maker ve Robotik Kodlama Atölyesi | Gencer Taahhüt</title>
+    <meta name="description" content="Çocuklar için maker atölyesi, robotik kodlama eğitimleri, 3D yazıcı tasarımı ve algoritmik düşünme odaklı yeni nesil teknoloji eğitimleri.">
+    <link rel="stylesheet" href="style.css">
+    <!-- AOS Animation Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Google Model Viewer for 3D Models -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+</head>
+<body>
+
+    <!-- Preloader (Sayfa Yükleniyor Ekranı) -->
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #050d0a; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.5s ease, visibility 0.5s ease;">
+        <div style="width: 50px; height: 50px; border: 4px solid var(--color-border); border-top: 4px solid var(--color-primary); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
+        <img src="logo-icon.png" alt="Gencer Taahhüt" style="height: 60px; width: auto; object-fit: contain;">
+        <style>
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+    </div>
+
+    <!-- Header / Navigasyon -->
+    <header id="main-header">
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress" style="position: absolute; bottom: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(to right, var(--color-primary), var(--color-secondary)); transition: width 0.1s ease; z-index: 1001;"></div>
+        
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link" id="header-logo-link">
+                <img src="logo-icon.png" alt="Gencer Taahhüt Logo" class="logo-img" id="header-logo-img">
+                <div class="logo-text-group">
+                    <div class="logo-text" id="header-logo-text">Gencer <span>Taahhüt</span></div>
+                    <div class="logo-subtext">Mobilya &bull; İnşaat &bull; Atölye</div>
+                </div>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link" id="nav-link-home">Ana Sayfa</a></li>
+                    <li><a href="hakkimizda.html" class="nav-link" id="nav-link-about">Hakkımızda</a></li>
+                    <li><a href="mobilya.html" class="nav-link" id="nav-link-furniture">Mobilya</a></li>
+                    <li><a href="insaat.html" class="nav-link" id="nav-link-construction">İnşaat</a></li>
+                    <li><a href="atolye.html" class="nav-link active" id="nav-link-workshop">Atölyelerimiz</a></li>
+                    <li><a href="iletisim.html" class="nav-link" id="nav-link-contact">İletişim</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" id="hamburger-btn" aria-label="Menüyü Aç">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" id="workshop-header">
+        <div class="container">
+            <h1>Atölyelerimiz</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Ana Sayfa</a> &gt; <span>Atölyelerimiz</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content" id="workshop-content-section">
+        <div class="container">
+            
+            <!-- Detaylı Açıklama -->
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; margin-bottom: 5rem;">
+                <div data-aos="fade-right" data-aos-duration="1000" style="width: 100%;">
+                    <model-viewer 
+                        src="Robotik Kodlama Atölyesi/robotik-kodlama-3d.glb" 
+                        alt="Robotik Kodlama 3D Model" 
+                        auto-rotate 
+                        camera-controls 
+                        ar
+                        shadow-intensity="1"
+                        style="width: 100%; height: 400px; background-color: rgba(17, 24, 39, 0.4); border-radius: var(--radius-lg); border: 1px solid var(--color-border); display: block; margin: 0 auto;"
+                        id="workshop-3d-model">
+                    </model-viewer>
+                </div>
+                <div data-aos="fade-left" data-aos-duration="1000">
+                    <span class="section-tag" style="color: var(--color-accent);">Yarınların Mucitleri Yetişiyor</span>
+                    <h2 style="font-size: 2.25rem; margin-bottom: 1.5rem;">Üreten ve Sorgulayan Nesiller İçin Teknoloji Atölyeleri</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Gencer Taahhüt olarak en önemli taahhüdümüzün yarınlarımızın teminatı olan çocuklarımıza yapılan yatırım olduğuna inanıyoruz. Çocuklarımızın sadece teknolojiyi kullanan değil, teknolojiyi <strong>tasarlayan ve üreten</strong> bireyler olması için özel atölyeler tasarladık.</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Eğitimlerimizde ezberci eğitim modellerinden uzak, proje tabanlı (STEAM) öğrenme yaklaşımlarını benimsiyoruz. Çocuklarımız kodlama yazmayı öğrenirken aynı zamanda mekanik yapıları ve ahşap tasarımları bir araya getirerek kendi çalışan robotlarını üretiyorlar.</p>
+                    <a href="iletisim.html" class="btn btn-primary" style="background-color: var(--color-accent); border-color: var(--color-accent);" id="btn-workshop-register">Atölye Ön Kayıt Formu</a>
+                </div>
+            </div>
+
+            <!-- Eğitim Programları -->
+            <div class="section-header">
+                <span class="section-tag" style="color: var(--color-accent);">Eğitim Modüllerimiz</span>
+                <h2>Atölye İçeriklerimiz</h2>
+            </div>
+
+            <div class="services-grid">
+                <!-- Kodlama ve Algoritma -->
+                <div class="service-card atolye" style="border-color: rgba(249, 115, 22, 0.2);" id="work-coding">
+                    <div class="service-icon">💻</div>
+                    <h3>Robotik Kodlama & Yazılım</h3>
+                    <p>Scratch, Python ve Arduino tabanlı platformlarla çocuklara algoritma kurmayı ve elektronik komponentleri kontrol etmeyi öğretiyoruz.</p>
+                </div>
+
+                <!-- 3D Tasarım ve Maker -->
+                <div class="service-card atolye" style="border-color: rgba(249, 115, 22, 0.2);" id="work-maker">
+                    <div class="service-icon">📐</div>
+                    <h3>3D Tasarım & Model Üretimi</h3>
+                    <p>Çocukların üç boyutlu düşünme yetilerini geliştirmek için Tinkercad ile tasarımlar yaptırıyor ve 3D yazıcılarımızla hayallerini gerçeğe dönüştürüyoruz.</p>
+                </div>
+
+                <!-- Ahşap Oyuncak & Mekanik -->
+                <div class="service-card atolye" style="border-color: rgba(249, 115, 22, 0.2);" id="work-carpentry">
+                    <div class="service-icon">🪵</div>
+                    <h3>Ahşap Tasarım & Mekanik</h3>
+                    <p>Eğlenceli ahşap mekanik kitler yardımıyla çocukların el becerilerini geliştiriyor, dişli ve kasnak mekanizmalarının çalışma mantığını öğretiyoruz.</p>
+                </div>
+            </div>
+
+            <!-- Galeri Bölümleri -->
+            <div style="margin-top: 5rem;">
+                <div class="section-header">
+                    <span class="section-tag" style="color: var(--color-accent);">Galeri</span>
+                    <h2>Atölyelerimizden Kareler</h2>
+                </div>
+
+                <!-- Maker Atölyesi Galerisi -->
+                <h3 class="gallery-section-title">Maker Atölyesi Çalışmaları</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="100">
+                        <img src="Maker Atölyesi/20d78113-3d91-4344-a38c-49911ff364b6.jpg" alt="Maker Atölyesi Çalışması 1">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="200">
+                        <img src="Maker Atölyesi/25a929b0-bbed-4f31-92c8-e13db45d497d.jpg" alt="Maker Atölyesi Çalışması 2">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="300">
+                        <img src="Maker Atölyesi/27aa4f41-5847-4352-8240-3c48a3c0f9e0.jpg" alt="Maker Atölyesi Çalışması 3">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="400">
+                        <img src="Maker Atölyesi/37adbe58-0831-4088-b52f-36aba3e39050.jpg" alt="Maker Atölyesi Çalışması 4">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="100">
+                        <img src="Maker Atölyesi/3fb821ca-630e-4ea4-b179-23d0b926ea27.jpg" alt="Maker Atölyesi Çalışması 5">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="200">
+                        <img src="Maker Atölyesi/4c110bfa-e8c7-40e1-97d4-2f3f54117584.jpg" alt="Maker Atölyesi Çalışması 6">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="300">
+                        <img src="Maker Atölyesi/528317a0-c91a-4967-8f74-597b475f284c.jpg" alt="Maker Atölyesi Çalışması 7">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="400">
+                        <img src="Maker Atölyesi/5c64b5cd-20e9-4e3a-a4df-6e352f0f863f.jpg" alt="Maker Atölyesi Çalışması 8">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="100">
+                        <img src="Maker Atölyesi/6e0ffde2-c8b6-400c-aa29-ff20057b8284.jpg" alt="Maker Atölyesi Çalışması 9">
+                    </div>
+                </div>
+
+                <!-- Robotik Kodlama Atölyesi Galerisi -->
+                <h3 class="gallery-section-title" style="border-left-color: var(--color-primary);">Robotik Kodlama Atölyesi Çalışmaları</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="100">
+                        <img src="Robotik Kodlama Atölyesi/18f12f8d-46dc-42d1-b04f-c421ecbd6ab7.jpg" alt="Robotik Kodlama 1">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="200">
+                        <img src="Robotik Kodlama Atölyesi/1c9bf0a4-a59e-4629-af88-bfd4a2cd1013.jpg" alt="Robotik Kodlama 2">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="300">
+                        <img src="Robotik Kodlama Atölyesi/2cb271bd-ec18-4315-aa08-13b96c34b417.jpg" alt="Robotik Kodlama 3">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="400">
+                        <img src="Robotik Kodlama Atölyesi/42e8a67f-b639-4e7f-a6a7-46efaf8a6954.jpg" alt="Robotik Kodlama 4">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="100">
+                        <img src="Robotik Kodlama Atölyesi/4bc42986-1289-4535-b8c2-4f8018818198.jpg" alt="Robotik Kodlama 5">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="200">
+                        <img src="Robotik Kodlama Atölyesi/565993cc-a615-49e5-9ce8-599997213f70.jpg" alt="Robotik Kodlama 6">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="300">
+                        <img src="Robotik Kodlama Atölyesi/59a8767c-ab97-47ee-aad9-5138960fd891.jpg" alt="Robotik Kodlama 7">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="400">
+                        <img src="Robotik Kodlama Atölyesi/5cbeec07-1567-4ff0-8165-0354fd958dce.jpg" alt="Robotik Kodlama 8">
+                    </div>
+                    <div class="gallery-item" style="cursor: pointer;" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="100">
+                        <img src="Robotik Kodlama Atölyesi/5f30fb58-37cc-4bfa-8ab3-6d91b8316bb4.jpg" alt="Robotik Kodlama 9">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lightbox Modal Container -->
+            <div id="lightbox-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.95); display: flex; align-items: center; justify-content: center; z-index: 10000; opacity: 0; visibility: hidden; transition: all 0.3s ease;" onclick="closeLightbox()">
+                <span style="position: absolute; top: 30px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer;">&times;</span>
+                <img id="lightbox-img" src="" alt="Büyütülmüş Görsel" style="max-width: 90%; max-height: 85%; object-fit: contain; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);">
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo-link">
+                    <img src="logo-icon.png" alt="Gencer Taahhüt Footer Logo" class="logo-img">
+                    <div class="logo-text-group">
+                    <div class="logo-text">Gencer <span>Taahhüt</span></div>
+                    <div class="logo-subtext">Mobilya &bull; İnşaat &bull; Atölye</div>
+                </div>
+                </a>
+                <p>İnşaat, mobilya ve teknoloji odaklı eğitim faaliyetlerimizle hayatın her alanında değer yaratmaya devam ediyoruz.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon" aria-label="Facebook">FB</a>
+                    <a href="#" class="social-icon" aria-label="Instagram">IG</a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">LN</a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Hızlı Menü</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Hizmetlerimiz</h4>
+                <ul class="footer-links">
+                    <li><a href="mobilya.html">Özel Tasarım Mobilya</a></li>
+                    <li><a href="insaat.html">İnşaat & Taahhüt</a></li>
+                    <li><a href="atolye.html">Atölyelerimiz</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact-info">
+                <h4 class="footer-heading">İletişim Bilgileri</h4>
+                <p>📍 Merkez Mah. Atatürk Cad. No:45, İstanbul</p>
+                <p>📞 +90 (212) 123 45 67</p>
+                <p>✉️ info@gencertaahhut.com</p>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Gencer Taahhüt. Tüm Hakları Saklıdır.</p>
+            <p>Tasarım & Yazılım: Antigravity</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: var(--color-primary); color: white; border: none; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 999; box-shadow: var(--shadow-lg);" aria-label="Yukarı Çık">↑</button>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/905446998282" target="_blank" rel="noopener noreferrer" id="whatsapp-float" style="position: fixed; bottom: 95px; right: 30px; width: 50px; height: 50px; background-color: #25d366; color: white; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg); z-index: 999; transition: all 0.3s ease; text-decoration: none; animation: pulse 2s infinite;" aria-label="WhatsApp ile İletişime Geçin">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 10.64 0H5.36a7.85 7.85 0 0 0-5.28 2.325C-.052 4.093-.052 6.907.08 8.653l-.8 2.925 2.992-.785a7.8 7.8 0 0 0 3.738.953h.003c4.337 0 7.863-3.527 7.87-7.863a7.8 7.8 0 0 0-2.282-5.557m-2.96 10.233a6.5 6.5 0 0 1-3.39-.942l-.243-.144-2.52.66.67-2.455-.158-.25a6.5 6.5 0 0 1-.983-3.41c.007-3.593 2.93-6.51 6.527-6.51h.001c3.597 0 6.52 2.917 6.526 6.51a6.5 6.5 0 0 1-6.432 6.591m3.657-4.802c-.2-.1-1.185-.584-1.37-.652-.185-.067-.32-.1-.454.1-.134.2-.522.652-.64.783-.117.135-.235.15-.436.05-.2-.1-.843-.311-1.607-.992-.594-.53-1.002-1.185-1.119-1.385-.117-.2-.013-.307.087-.406.09-.09.2-.233.3-.349.097-.117.13-.2.195-.333.067-.135.034-.253-.017-.354-.05-.1-.454-1.1-.62-1.5-.163-.393-.327-.339-.454-.346-.12-.007-.255-.007-.39-.007a.72.72 0 0 0-.522.244c-.18.199-.687.67-.687 1.636s.704 1.897.802 2.03c.1.135 1.387 2.118 3.36 2.97.47.203.837.325 1.123.415.473.15.903.129 1.243.078.38-.057 1.185-.484 1.352-.927.167-.442.167-.822.117-.9-.05-.079-.186-.128-.386-.228"/>
+        </svg>
+        <style>
+            @keyframes pulse {
+                0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+                70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+                100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+            }
+        </style>
+    </a>
+
+    <script src="app.js"></script>
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 120
+        });
+    </script>
+</body>
+</html>

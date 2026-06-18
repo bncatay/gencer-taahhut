@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim ve Adres Bilgileri | Gencer Taahhüt</title>
+    <meta name="description" content="Gencer Taahhüt ile iletişime geçin. Adresimiz, telefon numaramız, harita lokasyonumuz ve teklif istek formu bu sayfada.">
+    <link rel="stylesheet" href="style.css">
+    <!-- AOS Animation Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+        }
+        .contact-info-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--color-border);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+        }
+        .info-block {
+            margin-bottom: 2rem;
+        }
+        .info-block h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+        }
+        .info-block p {
+            color: var(--text-secondary);
+        }
+        .contact-form {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--color-border);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            transition: var(--transition-fast);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+        }
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0 0 24 24'%20fill='none'%20stroke='%23cbd5e1'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpolyline%20points='6%209%2012%2015%2018%209'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preloader (Sayfa Yükleniyor Ekranı) -->
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #050d0a; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.5s ease, visibility 0.5s ease;">
+        <div style="width: 50px; height: 50px; border: 4px solid var(--color-border); border-top: 4px solid var(--color-primary); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
+        <img src="logo-icon.png" alt="Gencer Taahhüt" style="height: 60px; width: auto; object-fit: contain;">
+        <style>
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+    </div>
+
+    <!-- Header / Navigasyon -->
+    <header id="main-header">
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress" style="position: absolute; bottom: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(to right, var(--color-primary), var(--color-secondary)); transition: width 0.1s ease; z-index: 1001;"></div>
+        
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link" id="header-logo-link">
+                <img src="logo-icon.png" alt="Gencer Taahhüt Logo" class="logo-img" id="header-logo-img">
+                <div class="logo-text-group">
+                    <div class="logo-text" id="header-logo-text">Gencer <span>Taahhüt</span></div>
+                    <div class="logo-subtext">Mobilya &bull; İnşaat &bull; Atölye</div>
+                </div>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link" id="nav-link-home">Ana Sayfa</a></li>
+                    <li><a href="hakkimizda.html" class="nav-link" id="nav-link-about">Hakkımızda</a></li>
+                    <li><a href="mobilya.html" class="nav-link" id="nav-link-furniture">Mobilya</a></li>
+                    <li><a href="insaat.html" class="nav-link" id="nav-link-construction">İnşaat</a></li>
+                    <li><a href="atolye.html" class="nav-link" id="nav-link-workshop">Atölyelerimiz</a></li>
+                    <li><a href="iletisim.html" class="nav-link active" id="nav-link-contact">İletişim</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" id="hamburger-btn" aria-label="Menüyü Aç">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" id="contact-header">
+        <div class="container">
+            <h1>Bizimle İletişime Geçin</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Ana Sayfa</a> &gt; <span>İletişim</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content" id="contact-content-section">
+        <div class="container">
+            
+            <div class="contact-grid">
+                
+                <!-- İletişim Bilgileri -->
+                <div class="contact-info-card" id="contact-details" data-aos="fade-right" data-aos-duration="1000">
+                    <span class="section-tag">İletişim</span>
+                    <h2 style="margin-bottom: 2rem;">Size Nasıl Yardımcı Olabiliriz?</h2>
+                    
+                    <div class="info-block">
+                        <h4>📍 Adresimiz</h4>
+                        <p>Merkez Mahallesi, Atatürk Caddesi, No:45<br>Kağıthane / İstanbul</p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>📞 Telefon Numaralarımız</h4>
+                        <p>Genel Merkez: +90 (212) 123 45 67<br>Mobilya Atölyesi: +90 (212) 123 45 68<br>Maker Atölyesi: +90 (212) 123 45 69</p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>✉️ E-Posta Adreslerimiz</h4>
+                        <p>Genel Bilgi: info@gencertaahhut.com<br>Teklif Talepleri: teklif@gencertaahhut.com<br>Atölye Kayıt: atolye@gencertaahhut.com</p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>⏰ Çalışma Saatleri</h4>
+                        <p>Pazartesi - Cumartesi: 09:00 - 18:00<br>Pazar: Kapalı (Maker Atölyesi etkinlik günleri hariç)</p>
+                    </div>
+                </div>
+
+                <!-- İletişim & Teklif Formu -->
+                <div class="contact-form" id="contact-form-block" data-aos="fade-left" data-aos-duration="1000">
+                    <h3 style="margin-bottom: 1.5rem;">Bize Mesaj Gönderin</h3>
+                    <form id="lead-form">
+                        <div class="form-group">
+                            <label for="form-name" class="form-label">Adınız Soyadınız *</label>
+                            <input type="text" id="form-name" class="form-control" required placeholder="Örn: Ahmet Yılmaz">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-email" class="form-label">E-Posta Adresiniz *</label>
+                            <input type="email" id="form-email" class="form-control" required placeholder="name@domain.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-phone" class="form-label">Telefon Numaranız *</label>
+                            <input type="tel" id="form-phone" class="form-control" required placeholder="0555 123 45 67">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-service" class="form-label">İlgilendiğiniz Hizmet Alanı *</label>
+                            <select id="form-service" class="form-control" required>
+                                <option value="" disabled selected>Lütfen Seçiniz</option>
+                                <option value="mobilya">Özel Tasarım Mobilya İmalatı</option>
+                                <option value="insaat">İnşaat Taahhüt & Mühendislik</option>
+                                <option value="atolye">Maker & Robotik Atölye Kaydı</option>
+                                <option value="diger">Diğer / Genel Konular</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-message" class="form-label">Mesajınız *</label>
+                            <textarea id="form-message" class="form-control" rows="5" required placeholder="Talebinizi detaylıca yazabilirsiniz..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;" id="form-submit-btn">Gönder</button>
+                    </form>
+                    
+                    <div id="form-response-msg" style="display: none; margin-top: 1.5rem; padding: 1rem; border-radius: var(--radius-md); font-weight: 600; text-align: center;"></div>
+                </div>
+
+            </div>
+
+            <!-- Harita Lokasyonu -->
+            <div style="margin-top: 5rem; border-radius: var(--radius-lg); overflow: hidden; height: 400px; border: 1px solid var(--color-border);" id="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d192634.34151745498!2d28.84757342812061!3d41.00537021111666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa7040068086b%3A0xe1cc15e54d56d7ef!2zxLBzdGFuYnVs!5e0!3m2!1str!2str!4v1718723000000!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="map-iframe"></iframe>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo-link">
+                    <img src="logo-icon.png" alt="Gencer Taahhüt Footer Logo" class="logo-img">
+                    <div class="logo-text-group">
+                    <div class="logo-text">Gencer <span>Taahhüt</span></div>
+                    <div class="logo-subtext">Mobilya &bull; İnşaat &bull; Atölye</div>
+                </div>
+                </a>
+                <p>İnşaat, mobilya ve teknoloji odaklı eğitim faaliyetlerimizle hayatın her alanında değer yaratmaya devam ediyoruz.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon" aria-label="Facebook">FB</a>
+                    <a href="#" class="social-icon" aria-label="Instagram">IG</a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">LN</a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Hızlı Menü</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Hizmetlerimiz</h4>
+                <ul class="footer-links">
+                    <li><a href="mobilya.html">Özel Tasarım Mobilya</a></li>
+                    <li><a href="insaat.html">İnşaat & Taahhüt</a></li>
+                    <li><a href="atolye.html">Atölyelerimiz</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact-info">
+                <h4 class="footer-heading">İletişim Bilgileri</h4>
+                <p>📍 Merkez Mah. Atatürk Cad. No:45, İstanbul</p>
+                <p>📞 +90 (212) 123 45 67</p>
+                <p>✉️ info@gencertaahhut.com</p>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Gencer Taahhüt. Tüm Hakları Saklıdır.</p>
+            <p>Tasarım & Yazılım: Antigravity</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: var(--color-primary); color: white; border: none; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 999; box-shadow: var(--shadow-lg);" aria-label="Yukarı Çık">↑</button>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/905446998282" target="_blank" rel="noopener noreferrer" id="whatsapp-float" style="position: fixed; bottom: 95px; right: 30px; width: 50px; height: 50px; background-color: #25d366; color: white; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg); z-index: 999; transition: all 0.3s ease; text-decoration: none; animation: pulse 2s infinite;" aria-label="WhatsApp ile İletişime Geçin">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 10.64 0H5.36a7.85 7.85 0 0 0-5.28 2.325C-.052 4.093-.052 6.907.08 8.653l-.8 2.925 2.992-.785a7.8 7.8 0 0 0 3.738.953h.003c4.337 0 7.863-3.527 7.87-7.863a7.8 7.8 0 0 0-2.282-5.557m-2.96 10.233a6.5 6.5 0 0 1-3.39-.942l-.243-.144-2.52.66.67-2.455-.158-.25a6.5 6.5 0 0 1-.983-3.41c.007-3.593 2.93-6.51 6.527-6.51h.001c3.597 0 6.52 2.917 6.526 6.51a6.5 6.5 0 0 1-6.432 6.591m3.657-4.802c-.2-.1-1.185-.584-1.37-.652-.185-.067-.32-.1-.454.1-.134.2-.522.652-.64.783-.117.135-.235.15-.436.05-.2-.1-.843-.311-1.607-.992-.594-.53-1.002-1.185-1.119-1.385-.117-.2-.013-.307.087-.406.09-.09.2-.233.3-.349.097-.117.13-.2.195-.333.067-.135.034-.253-.017-.354-.05-.1-.454-1.1-.62-1.5-.163-.393-.327-.339-.454-.346-.12-.007-.255-.007-.39-.007a.72.72 0 0 0-.522.244c-.18.199-.687.67-.687 1.636s.704 1.897.802 2.03c.1.135 1.387 2.118 3.36 2.97.47.203.837.325 1.123.415.473.15.903.129 1.243.078.38-.057 1.185-.484 1.352-.927.167-.442.167-.822.117-.9-.05-.079-.186-.128-.386-.228"/>
+        </svg>
+        <style>
+            @keyframes pulse {
+                0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+                70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+                100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+            }
+        </style>
+    </a>
+
+    <script src="app.js"></script>
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 120
+        });
+    </script>
+</body>
+</html>
