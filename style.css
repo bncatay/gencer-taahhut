@@ -5,26 +5,24 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
+
+
 :root {
-    /* Renk Paleti - Zümrüt Temalı Derin Premium Koyu Tema */
-    --bg-primary: #050d0a; /* Çok Derin Zümrüt Siyahı */
-    --bg-secondary: #0a1712; /* Derin Orman Yeşili */
-    --bg-tertiary: #11241d;
-    --text-primary: #f8fafc; /* Gümüş Beyaz */
-    --text-secondary: #cbd5e1; /* Açık Gri */
+    /* Renk Paleti - Zümrüt Temalı Derin Premium Koyu Tema (Hafifçe açılmış ve kontrastı artırılmış lüks versiyon) */
+    --bg-primary: #0b1512; /* Çok kapalı siyah yerine derin gri zümrüt tonu */
+    --bg-secondary: #12211c; /* Leke zeminler için daha görünür orman tonu */
+    --bg-tertiary: #192f28;
+    --text-primary: #ffffff; /* Parlak Beyaz */
+    --text-secondary: #e2e8f0; /* Daha okunabilir açık gri */
     --text-muted: #94a3b8;
     
-    --color-primary: #10b981; /* Zümrüt Yeşili (İnşaat & Enerji & Doğa) */
-    --color-primary-hover: #059669;
-    --color-secondary: #e2b767; /* Şampanya Altını (Lüks Mobilya & Prestij) */
-    --color-secondary-hover: #c29438;
+    --color-primary: #10b981; /* Zümrüt Yeşili */
+    --color-primary-hover: #34d399;
+    --color-secondary: #e2b767; /* Şampanya Altını */
+    --color-secondary-hover: #f1d299;
     --color-accent: #10b981;
     --color-accent-hover: #34d399;
-    --color-border: rgba(255, 255, 255, 0.08);
-
-
-    
-    /* Fontlar */
+    --color-border: rgba(255, 255, 255, 0.12); /* Kontrastı artırılmış sınır çizgileri */
     --font-main: 'Plus Jakarta Sans', sans-serif;
     
     /* Gölgeler ve Köşe Yumuşaklıkları */
@@ -57,10 +55,10 @@ html {
 body {
     font-family: var(--font-main);
     background-color: var(--bg-primary);
-    /* Mimari Çizim Eskiz Defteri Kılavuz Çizgileri */
+    /* Mimari Çizim Eskiz Defteri Kılavuz Çizgileri (Hafifçe artırılmış şeffaflık) */
     background-image: 
-        linear-gradient(rgba(16, 185, 129, 0.012) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(16, 185, 129, 0.012) 1px, transparent 1px);
+        linear-gradient(rgba(16, 185, 129, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.02) 1px, transparent 1px);
     background-size: 60px 60px;
     background-position: center;
     color: var(--text-primary);
@@ -614,48 +612,212 @@ header.scrolled .logo-img {
 }
 
 /* Tanıtım / Özellik Alanları (Hakkımızda vb) */
-.about-teaser {
+
+
+/* Ferhat Ekemen Katmanlı & Açılı Kart Stili */
+.about-teaser-section {
     background-color: var(--bg-secondary);
-    padding: 100px 0;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+    /* Hafif bir zümrüt ışıltısı arkaya */
+    background-image: radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
 }
 
-.about-teaser-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
+.about-teaser-header {
+    max-width: 800px;
 }
 
-.about-teaser-content h2 {
-    font-size: 2.75rem;
+.about-cards-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+    position: relative;
+}
+
+.about-card-item {
+    max-width: 480px;
+    width: 100%;
+    border-radius: 28px;
+    padding: 60px 45px;
+    transition: var(--transition-normal);
+}
+
+/* Kart 1: Uzmanlık Kartı (Derin Zümrüt Yeşili ve Eğik) */
+.about-card-item.expert-card {
+    background-color: var(--color-primary);
+    transform: rotate(-5deg);
+    position: relative;
+    left: 20px;
+    top: 10px;
+    box-shadow: 0 20px 50px -15px rgba(16, 185, 129, 0.3);
+    z-index: 3;
+}
+
+.about-card-item.expert-card .about-card-text h3 {
+    color: var(--bg-primary);
+    font-size: 2.25rem;
+    font-weight: 800;
     margin-bottom: 2rem;
-    letter-spacing: -1px;
 }
 
-.about-teaser-content p {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
+.about-card-item.expert-card .about-card-text ul {
+    list-style: none;
+}
+
+.about-card-item.expert-card .about-card-text ul li {
+    margin-bottom: 1rem;
+}
+
+.about-card-item.expert-card .about-card-text ul li span {
+    display: inline-block;
+    background-color: rgba(5, 13, 10, 0.2);
+    color: var(--bg-primary);
+    font-weight: 700;
     font-size: 1.05rem;
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--radius-md);
 }
 
-.stats-grid {
+/* Kart 2: Misyon Kartı (Cam Efektli & Üst Üste Binen Düz Kart) */
+.about-card-item.mission-card {
+    background-color: rgba(25, 47, 40, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: -80px;
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.4);
+    z-index: 5;
+    position: relative;
+}
+
+.about-card-item.mission-card .about-card-text h3 {
+    color: var(--color-secondary);
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+.about-card-item.mission-card .about-card-text ul {
+    list-style: none;
+}
+
+.about-card-item.mission-card .about-card-text ul li {
+    margin-bottom: 1rem;
+}
+
+.about-card-item.mission-card .about-card-text ul li span {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Kart 3: Görsel Kartı (Eğik Görsel) */
+.about-card-item.image-card {
+    padding: 0;
+    transform: rotate(5deg);
+    position: relative;
+    left: -20px;
+    top: 10px;
+    z-index: 2;
+    overflow: hidden;
+    box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.5);
+    max-height: 480px;
+}
+
+.about-card-image-box {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.about-teaser-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 18px;
+    opacity: 0.9;
+}
+
+/* Kart Hover Etkileri */
+.about-card-item.expert-card:hover {
+    transform: rotate(-2deg) translateY(-8px);
+    box-shadow: 0 30px 60px -10px rgba(16, 185, 129, 0.45);
+}
+
+.about-card-item.mission-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.6);
+}
+
+.about-card-item.image-card:hover {
+    transform: rotate(2deg) translateY(-8px);
+}
+
+/* Sayaçlar Satırı */
+.teaser-stats-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 3.5rem;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 4rem auto 0 auto;
+    text-align: center;
 }
 
-.stat-item h4 {
-    font-size: 3rem;
+.teaser-stat-box h4 {
+    font-size: 3.5rem;
     color: var(--color-primary);
-    margin-bottom: 0.25rem;
     font-weight: 800;
+    margin-bottom: 0.25rem;
 }
 
-.stat-item p {
-    font-size: 0.9rem;
+.teaser-stat-box p {
+    font-size: 1rem;
     font-weight: 700;
     color: var(--text-muted);
+}
+
+/* Mobil / Tablet Optimizasyonları */
+@media (max-width: 1199px) {
+    .about-cards-wrap {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+        margin-top: 2rem;
+    }
+    
+    .about-card-item.expert-card,
+    .about-card-item.mission-card,
+    .about-card-item.image-card {
+        transform: none !important;
+        left: 0 !important;
+        margin-left: 0 !important;
+        max-width: 550px;
+        top: 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-teaser-section {
+        padding: 80px 0;
+    }
+    
+    .teaser-stats-row {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 /* Footer Tasarımı */
