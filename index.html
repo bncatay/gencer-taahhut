@@ -56,20 +56,59 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Premium Fade Slider) -->
     <section class="hero" id="hero-section">
-        <div class="container hero-grid">
-            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
-                <h1>Geleceği İnşa Ediyor, <span>Yaşam Alanlarını Şekillendiriyoruz</span></h1>
-                <p>Gencer Taahhüt olarak sağlam yapılar kuruyor, estetik mobilyalar üretiyor ve yarının maker çocuklarını robotik kodlama ile geleceğe hazırlıyoruz.</p>
-                <div class="hero-actions">
-                    <a href="iletisim.html" class="btn btn-primary" id="hero-cta-contact">Bizimle İletişime Geçin</a>
-                    <a href="hakkimizda.html" class="btn btn-secondary" id="hero-cta-about">Daha Fazla Bilgi</a>
+        <div class="hero-slider" id="hero-slider">
+            
+            <!-- Slide 1: İnşaat & Taahhüt -->
+            <div class="hero-slide active" id="slide-construction">
+                <div class="hero-slide-bg" style="background-image: url('images/slider-insaat.png');"></div>
+                <div class="container hero-slide-content">
+                    <span class="section-tag" data-aos="fade-up">Gencer İnşaat</span>
+                    <h1 data-aos="fade-up" data-aos-delay="100">Geleceği Güvenle <span>İnşa Ediyoruz</span></h1>
+                    <p data-aos="fade-up" data-aos-delay="200">Statik doğruluğu yüksek mühendislik çözümleri ve modern mimari yaklaşımlarla, depreme dayanıklı ve prestijli yapılar üretiyoruz.</p>
+                    <div class="hero-actions" data-aos="fade-up" data-aos-delay="300">
+                        <a href="insaat.html" class="btn btn-primary">İnşaat Projelerimizi Gör</a>
+                        <a href="iletisim.html" class="btn btn-secondary">Teklif Alın</a>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image-container" data-aos="fade-left" data-aos-duration="1000">
-                <img src="logo.png" alt="Gencer Taahhüt Kurumsal Görsel" class="hero-img" id="hero-main-img">
+
+            <!-- Slide 2: Özel Tasarım Mobilya -->
+            <div class="hero-slide" id="slide-furniture">
+                <div class="hero-slide-bg" style="background-image: url('images/slider-mobilya.png');"></div>
+                <div class="container hero-slide-content">
+                    <span class="section-tag" style="color: var(--color-secondary);" data-aos="fade-up">Gencer Mobilya</span>
+                    <h1 data-aos="fade-up" data-aos-delay="100">Yaşam Alanlarına <span>Değer Katıyoruz</span></h1>
+                    <p data-aos="fade-up" data-aos-delay="200">Kendi atölyemizde, evinize ve ofisinize özel ölçülerle ürettiğimiz premium ahşap mobilyalarla estetiği ve zanaatkarlığı birleştiriyoruz.</p>
+                    <div class="hero-actions" data-aos="fade-up" data-aos-delay="300">
+                        <a href="mobilya.html" class="btn btn-primary" style="background-color: var(--color-secondary); border-color: var(--color-secondary); color: var(--bg-primary);">Özel Tasarımları İncele</a>
+                        <a href="iletisim.html" class="btn btn-secondary">Keşif İste</a>
+                    </div>
+                </div>
             </div>
+
+            <!-- Slide 3: Teknoloji & Maker Atölyeleri -->
+            <div class="hero-slide" id="slide-workshop">
+                <div class="hero-slide-bg" style="background-image: url('images/slider-atolye.png');"></div>
+                <div class="container hero-slide-content">
+                    <span class="section-tag" data-aos="fade-up">Gencer Atölye</span>
+                    <h1 data-aos="fade-up" data-aos-delay="100">Teknoloji ve Üretim <span>Atölyeleri Kuruyoruz</span></h1>
+                    <p data-aos="fade-up" data-aos-delay="200">Okullar ve kurumlar için 3D tasarım, robotik kodlama ve maker alanlarını; özel mobilyaları, elektronik kitleri ve yazılımlarıyla anahtar teslim tasarlıyoruz.</p>
+                    <div class="hero-actions" data-aos="fade-up" data-aos-delay="300">
+                        <a href="atolye.html" class="btn btn-primary">Atölye Kurulumlarını Keşfet</a>
+                        <a href="iletisim.html" class="btn btn-secondary">Bilgi Alın</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Slider Yönlendiricileri (Indicators) -->
+        <div class="slider-indicators" id="slider-indicators">
+            <span class="indicator-dot active" onclick="setSlide(0)"></span>
+            <span class="indicator-dot" onclick="setSlide(1)"></span>
+            <span class="indicator-dot" onclick="setSlide(2)"></span>
         </div>
     </section>
 

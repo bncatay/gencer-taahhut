@@ -236,6 +236,77 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         animateCursor();
     }
+
+    // 8. Ana Sayfa Premium Slider Mantığı
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll(".indicator-dot");
+    let currentSlide = 0;
+    let slideInterval;
+    const intervalTime = 6000; // Her bir slayt 6 saniye kalacak
+
+    function showSlide(index) {
+        if (!slides.length) return;
+        
+        // Aktif sınıfları temizle
+        slides.forEach(slide => {
+            slide.classList.remove("active");
+            // AOS kütüphanesini yeniden tetiklemek için AOS sınıflarını temizle/ekle
+            const animElements = slide.querySelectorAll("[data-aos]");
+            animElements.forEach(el => {
+                el.classList.remove("aos-animate");
+            });
+        });
+        dots.forEach(dot => dot.classList.remove("active"));
+
+        // Yeni aktif slaytı göster
+        currentSlide = (index + slides.length) % slides.length;
+        slides[currentSlide].classList.add("active");
+        if (dots[currentSlide]) {
+            dots[currentSlide].classList.add("active");
+        }
+
+        // AOS animasyonlarını slayt geçişinde yeniden canlandır
+        setTimeout(() => {
+            const activeAnimElements = slides[currentSlide].querySelectorAll("[data-aos]");
+            activeAnimElements.forEach(el => {
+                el.classList.add("aos-animate");
+            });
+        }, 100);
+    }
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    function startSlideShow() {
+        if (!slides.length) return;
+        stopSlideShow(); // Çiftlemeyi önlemek için temizle
+        slideInterval = setInterval(nextSlide, intervalTime);
+    }
+
+    function stopSlideShow() {
+        if (slideInterval) {
+            clearInterval(slideInterval);
+        }
+    }
+
+    // Indicator noktalarına tıklama fonksiyonunu global scope'a bağlayalım
+    window.setSlide = function(index) {
+        showSlide(index);
+        startSlideShow(); // Süreyi sıfırla
+    };
+
+    // Slider üzerine gelince durma (hover durumunda duraklat)
+    const sliderContainer = document.getElementById("hero-slider");
+    if (sliderContainer) {
+        sliderContainer.addEventListener("mouseenter", stopSlideShow);
+        sliderContainer.addEventListener("mouseleave", startSlideShow);
+    }
+
+    // Başlangıç tetiklemesi
+    if (slides.length > 0) {
+        startSlideShow();
+    }
 });
 
 // Lightbox Galeri Fonksiyonları (Global Scope)
