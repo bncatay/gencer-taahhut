@@ -760,4 +760,51 @@ footer {
     margin: 0 !important;
 }
 
+/* ==========================================
+   Lüks Custom Cursor (Tasarım İmleci)
+   ========================================== */
+#custom-cursor {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--color-secondary); /* Şampanya Altını */
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10000;
+    transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                height 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-color 0.25s ease, 
+                border-color 0.25s ease;
+    display: none; /* Mobilde gizle */
+    left: -100px;
+    top: -100px;
+}
+
+#custom-cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-primary); /* Zümrüt Yeşili */
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10001;
+    display: none; /* Mobilde gizle */
+    left: -100px;
+    top: -100px;
+}
+
+@media (min-width: 1025px) {
+    #custom-cursor, #custom-cursor-dot {
+        display: block;
+    }
+    
+    /* Masaüstünde varsayılan imleci kaldırıyoruz */
+    body, html, a, button, select, textarea, input, .btn, .faq-question, .gallery-item, .social-icon {
+        cursor: none !important;
+    }
+}
+
+
 
