@@ -307,6 +307,30 @@ document.addEventListener("DOMContentLoaded", () => {
     if (slides.length > 0) {
         startSlideShow();
     }
+
+    // 9. Ferhat Ekemen Tesisat Stili: Ekrana Kaydırınca Kartların Birleşikten Yanlara Doğru Yayılması (Scroll Trigger)
+    const cardsWrap = document.querySelector(".about-cards-wrap");
+    if (cardsWrap) {
+        const observerOptions = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.25 // %25'i ekrana girdiğinde tetiklensin
+        };
+
+        const cardsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Ekrana girdiğinde "spread" sınıfını ekle (Kartlar yanlara yayılacak)
+                    cardsWrap.classList.add("spread");
+                } else {
+                    // Ekrandan çıkınca sıfırla (İç içe birleşmiş duruma geri dönecek)
+                    cardsWrap.classList.remove("spread");
+                }
+            });
+        }, observerOptions);
+
+        cardsObserver.observe(cardsWrap);
+    }
 });
 
 // Lightbox Galeri Fonksiyonları (Global Scope)
