@@ -8,28 +8,28 @@
 
 
 :root {
-    /* Renk Paleti - Zümrüt Temalı Derin Premium Koyu Tema (Hafifçe açılmış ve kontrastı artırılmış lüks versiyon) */
-    --bg-primary: #0b1512; /* Çok kapalı siyah yerine derin gri zümrüt tonu */
-    --bg-secondary: #12211c; /* Leke zeminler için daha görünür orman tonu */
-    --bg-tertiary: #192f28;
-    --text-primary: #ffffff; /* Parlak Beyaz */
-    --text-secondary: #e2e8f0; /* Daha okunabilir açık gri */
-    --text-muted: #94a3b8;
+    /* Renk Paleti - Zümrüt Temalı Premium Lüks Açık Tema */
+    --bg-primary: #fcfcfb; /* Parlak beyaz yerine sıcak, lüks keten/krem tonu */
+    --bg-secondary: #f4f3ee; /* Katmanlı zeminler ve kartlar için yumuşak kum tonu */
+    --bg-tertiary: #e9e8e0; /* Derinlik veren koyu krem tonu */
+    --text-primary: #121e1a; /* Çok sert siyah yerine lüks koyu orman yeşili/siyah tonu */
+    --text-secondary: #3c4c46; /* Gövde metinleri için yumuşak koyu gri-yeşil */
+    --text-muted: #72847d;
     
-    --color-primary: #10b981; /* Zümrüt Yeşili */
-    --color-primary-hover: #34d399;
-    --color-secondary: #e2b767; /* Şampanya Altını */
-    --color-secondary-hover: #f1d299;
-    --color-accent: #10b981;
-    --color-accent-hover: #34d399;
-    --color-border: rgba(255, 255, 255, 0.12); /* Kontrastı artırılmış sınır çizgileri */
+    --color-primary: #059669; /* Zümrüt Yeşili - Açık zeminde daha iyi görünürlük için kontrastı artırıldı */
+    --color-primary-hover: #10b981;
+    --color-secondary: #b8862d; /* Şampanya/Bronz Altını - Açık zeminde zengin kontrast */
+    --color-secondary-hover: #d9a043;
+    --color-accent: #059669;
+    --color-accent-hover: #10b981;
+    --color-border: rgba(18, 30, 26, 0.08); /* Açık renk zeminle uyumlu yumuşak sınırlar */
     --font-main: 'Plus Jakarta Sans', sans-serif;
     
     /* Gölgeler ve Köşe Yumuşaklıkları */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-premium: 0 20px 25px -5px rgb(0 0 0 / 0.03), 0 8px 10px -6px rgb(0 0 0 / 0.03);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+    --shadow-premium: 0 20px 25px -5px rgb(0 0 0 / 0.02), 0 8px 10px -6px rgb(0 0 0 / 0.02);
     
     --radius-sm: 8px;
     --radius-md: 14px;
@@ -55,10 +55,10 @@ html {
 body {
     font-family: var(--font-main);
     background-color: var(--bg-primary);
-    /* Mimari Çizim Eskiz Defteri Kılavuz Çizgileri (Hafifçe artırılmış şeffaflık) */
+    /* Mimari Çizim Eskiz Defteri Kılavuz Çizgileri - Açık zemine uygun koyulukta */
     background-image: 
-        linear-gradient(rgba(16, 185, 129, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(16, 185, 129, 0.02) 1px, transparent 1px);
+        linear-gradient(rgba(5, 150, 105, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(5, 150, 105, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
     background-position: center;
     color: var(--text-primary);
@@ -93,18 +93,18 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(5, 13, 10, 0.85);
+    background-color: rgba(252, 252, 251, 0.85);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(18, 30, 26, 0.06);
     z-index: 1000;
     transition: var(--transition-normal);
     padding: 0.5rem 0;
 }
 
 header.scrolled {
-    background-color: rgba(5, 13, 10, 0.95);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    background-color: rgba(252, 252, 251, 0.96);
+    box-shadow: 0 10px 30px -10px rgba(18, 30, 26, 0.08);
     padding: 0.25rem 0;
 }
 
@@ -522,11 +522,11 @@ header.scrolled .logo-img {
 }
 
 .service-card {
-    /* Premium Glassmorphism (Yarı Şeffaf Cam Efekti) */
-    background-color: rgba(17, 24, 39, 0.65);
+    /* Premium Glassmorphism (Açık Yarı Şeffaf Cam Efekti) */
+    background-color: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(18, 30, 26, 0.06);
     border-radius: var(--radius-lg);
     padding: 3rem 2.25rem;
     transition: var(--transition-normal);
@@ -549,18 +549,21 @@ header.scrolled .logo-img {
 
 .service-card:hover {
     transform: translateY(-12px);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--color-border);
 }
 
-/* Renkli Glow (Neon Parlama) Efektleri */
+/* Renkli Glow (Neon Parlama) Efektleri - Açık Temaya Uygun Yumuşatılmış Hali */
 .service-card.mobilya:hover { 
-    box-shadow: 0 30px 60px -15px rgba(226, 183, 103, 0.18); 
+    box-shadow: 0 30px 60px -15px rgba(184, 134, 45, 0.12); 
+    border-color: rgba(184, 134, 45, 0.3);
 }
 .service-card.insaat:hover { 
-    box-shadow: 0 30px 60px -15px rgba(16, 185, 129, 0.18); 
+    box-shadow: 0 30px 60px -15px rgba(5, 150, 105, 0.12); 
+    border-color: rgba(5, 150, 105, 0.3);
 }
 .service-card.atolye:hover { 
-    box-shadow: 0 30px 60px -15px rgba(16, 185, 129, 0.18); 
+    box-shadow: 0 30px 60px -15px rgba(5, 150, 105, 0.12); 
+    border-color: rgba(5, 150, 105, 0.3);
 }
 
 .service-card.mobilya:hover::before { background-color: var(--color-secondary); }
@@ -784,11 +787,12 @@ header.scrolled .logo-img {
     }
 }
 
-/* Footer Tasarımı */
+/* Footer Tasarımı - Sayfayı Dengeleyen Koyu Zümrüt/Siyah Kontrast Zemin */
 footer {
-    background-color: var(--bg-secondary);
-    border-top: 1px solid var(--color-border);
+    background-color: #0b1512;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding: 100px 0 40px 0;
+    color: #ffffff;
 }
 
 .footer-grid {
@@ -799,10 +803,14 @@ footer {
 }
 
 .footer-brand p {
-    color: var(--text-secondary);
+    color: #94a3b8;
     font-size: 0.95rem;
     margin-top: 1rem;
     margin-bottom: 2rem;
+}
+
+.footer-brand .logo-text span {
+    color: #ffffff;
 }
 
 .footer-socials {
@@ -813,20 +821,20 @@ footer {
 .social-icon {
     width: 44px;
     height: 44px;
-    background-color: var(--bg-primary);
-    border: 1px solid var(--color-border);
+    background-color: #12211c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.1rem;
-    color: var(--text-secondary);
+    color: #cbd5e1;
     transition: var(--transition-normal);
 }
 
 .social-icon:hover {
     background-color: var(--color-primary);
-    color: var(--bg-primary);
+    color: #0b1512;
     border-color: transparent;
     transform: translateY(-4px);
 }
@@ -837,7 +845,7 @@ footer {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 2rem;
-    color: var(--text-primary);
+    color: #ffffff;
 }
 
 .footer-links {
@@ -849,7 +857,7 @@ footer {
 }
 
 .footer-links a {
-    color: var(--text-secondary);
+    color: #cbd5e1;
     font-size: 1rem;
 }
 
@@ -863,18 +871,18 @@ footer {
     align-items: center;
     gap: 0.75rem;
     font-size: 1rem;
-    color: var(--text-secondary);
+    color: #cbd5e1;
     margin-bottom: 1.25rem;
 }
 
 .footer-bottom {
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 2.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: #64748b;
 }
 
 /* Sayfa Şablonları Ortak Yapı (Alt Sayfalar İçin) */
