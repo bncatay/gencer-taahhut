@@ -636,98 +636,95 @@ header.scrolled .logo-img {
     display: flex;
     justify-content: center;
     align-items: stretch;
+    gap: 2.5rem;
     margin-top: 4rem;
     margin-bottom: 5rem;
     position: relative;
 }
 
 .about-card-item {
-    max-width: 480px;
+    max-width: 380px;
     width: 100%;
     border-radius: 28px;
-    padding: 60px 45px;
-    /* Kartların yayılması için transition süresini lüks ve yumuşak yapıyoruz */
-    transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 1s ease, left 1.8s cubic-bezier(0.16, 1, 0.3, 1), margin-left 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 50px 35px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    border: 1px solid var(--color-border);
 }
 
-/* KARTLARIN İLK KAPALI HALİ (İç içe geçmiş/birleşmiş hali) */
+/* KARTLARIN SADE VE OKUNABİLİR YAN YANA DÜZENİ */
 .about-card-item.expert-card {
-    background-color: var(--color-primary);
-    transform: rotate(0deg);
-    position: relative;
-    left: 120px; /* Merkeze yakın dursunlar */
-    top: 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    z-index: 3;
+    background-color: var(--color-primary); /* Turkuaz */
+    color: #ffffff;
+    box-shadow: var(--shadow-md);
 }
 
 .about-card-item.expert-card .about-card-text h3 {
-    color: var(--bg-primary);
-    font-size: 2rem;
+    color: #ffffff !important;
+    font-size: 1.8rem;
     font-weight: 800;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .about-card-item.expert-card .about-card-text p {
-    color: rgba(5, 13, 10, 0.85);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.about-card-item.expert-card .about-card-text a {
+    color: #ffffff !important;
 }
 
 .about-card-item.mission-card {
-    background-color: rgba(25, 47, 40, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-left: 0px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    z-index: 5;
-    position: relative;
+    background-color: #061d24; /* Koyu Turkuaz Zemin */
+    color: #ffffff;
+    box-shadow: var(--shadow-md);
 }
 
 .about-card-item.mission-card .about-card-text h3 {
-    color: var(--color-secondary);
-    font-size: 2rem;
+    color: var(--color-secondary) !important;
+    font-size: 1.8rem;
     font-weight: 800;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-card-item.mission-card .about-card-text p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.about-card-item.mission-card .about-card-text a {
+    color: var(--color-secondary) !important;
 }
 
 .about-card-item.image-card {
-    background-color: var(--bg-tertiary);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transform: rotate(0deg);
-    position: relative;
-    left: -120px; /* Merkeze yakın dursunlar */
-    top: 0;
-    z-index: 2;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-md);
 }
 
-/* KARTLARIN EKRANA GELDİĞİNDE YAYILIP AÇILMIŞ HALİ (.spread sınıfı eklenince tetiklenir) */
-.about-cards-wrap.spread .about-card-item.expert-card {
-    transform: rotate(-10.45deg);
-    left: 30px;
-    top: 14px;
-    box-shadow: 0 20px 50px -15px rgba(16, 185, 129, 0.35);
+.about-card-item.image-card h3 {
+    color: var(--text-primary) !important;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
 }
 
-.about-cards-wrap.spread .about-card-item.mission-card {
-    margin-left: -190px;
-    transform: none;
-    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+.about-card-item.image-card p {
+    color: var(--text-secondary);
 }
 
-.about-cards-wrap.spread .about-card-item.image-card {
-    transform: rotate(10.84deg);
-    left: 0px;
-    margin-left: -226px;
-    top: 14px;
-    box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.5);
+.about-card-item.image-card a {
+    color: var(--color-primary) !important;
+}
+
+/* SPREAD SINIFI (JS TETİKLEDİĞİNDE SADECE HAFİF BİR YUKARI KAYMA EFEKTİ) */
+.about-cards-wrap.spread .about-card-item {
+    transform: translateY(0);
 }
 
 /* Fareyle Kartın Üzerine Gelince Öne Çıkma */
 .about-card-item:hover {
-    z-index: 12 !important;
-    transform: scale(1.05) translateY(-10px) !important;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.8) !important;
+    z-index: 5 !important;
+    transform: translateY(-10px) scale(1.02) !important;
+    box-shadow: var(--shadow-lg) !important;
 }
 
 
