@@ -58,7 +58,7 @@ body {
     /* Katmanlı Premium Tasarım: Nokta Izgarası > Yumuşatıcı Maske > Doğal Mermer Dokusu */
     background-image: 
         radial-gradient(rgba(12, 25, 26, 0.05) 1.2px, transparent 1.2px), /* Mimari nokta kılavuzları */
-        linear-gradient(rgba(250, 249, 246, 0.92), rgba(250, 249, 246, 0.92)), /* Mermeri yumuşatıp arka plana gömen maske */
+        linear-gradient(rgba(250, 249, 246, 0.84), rgba(250, 249, 246, 0.84)), /* Mermeri yumuşatıp arka plana gömen maske */
         url('images/bg-texture.png'); /* Doğal lüks mermer dokusu */
     background-size: 40px 40px, 100% 100%, 700px 700px;
     background-repeat: repeat, no-repeat, repeat;
