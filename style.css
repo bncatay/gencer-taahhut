@@ -636,95 +636,143 @@ header.scrolled .logo-img {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 2.5rem;
+    gap: 1.5rem;
     margin-top: 4rem;
     margin-bottom: 5rem;
     position: relative;
+    width: 100%;
 }
 
 .about-card-item {
-    max-width: 380px;
-    width: 100%;
+    flex: 1;
     border-radius: 28px;
     padding: 50px 35px;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.2, 1), transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
     border: 1px solid var(--color-border);
-}
-
-/* KARTLARIN SADE VE OKUNABİLİR YAN YANA DÜZENİ */
-.about-card-item.expert-card {
-    background-color: var(--color-primary); /* Turkuaz */
-    color: #ffffff;
-    box-shadow: var(--shadow-md);
-}
-
-.about-card-item.expert-card .about-card-text h3 {
-    color: #ffffff !important;
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-}
-
-.about-card-item.expert-card .about-card-text p {
-    color: rgba(255, 255, 255, 0.95);
-}
-
-.about-card-item.expert-card .about-card-text a {
-    color: #ffffff !important;
-}
-
-.about-card-item.mission-card {
-    background-color: #061d24; /* Koyu Turkuaz Zemin */
-    color: #ffffff;
-    box-shadow: var(--shadow-md);
-}
-
-.about-card-item.mission-card .about-card-text h3 {
-    color: var(--color-secondary) !important;
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-}
-
-.about-card-item.mission-card .about-card-text p {
-    color: rgba(255, 255, 255, 0.85);
-}
-
-.about-card-item.mission-card .about-card-text a {
-    color: var(--color-secondary) !important;
-}
-
-.about-card-item.image-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 480px;
+    z-index: 1;
     background-color: var(--bg-secondary);
     color: var(--text-primary);
     box-shadow: var(--shadow-md);
 }
 
-.about-card-item.image-card h3 {
-    color: var(--text-primary) !important;
+/* Arka plan görselleri (Normalde şeffaf, hover edilince belirir) */
+.about-card-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: -2;
+}
+
+.about-card-item.expert-card::before {
+    background-image: url('images/slider-insaat.png');
+}
+.about-card-item.mission-card::before {
+    background-image: url('images/slider-mobilya.png');
+}
+.about-card-item.image-card::before {
+    background-image: url('images/slider-atolye.png');
+}
+
+/* Okunabilirlik için koyu degrade maske (Hover olunca belirir) */
+.about-card-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(6, 29, 36, 0.95) 0%, rgba(6, 29, 36, 0.45) 50%, rgba(6, 29, 36, 0.75) 100%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: -1;
+}
+
+/* Başlık ve Buton Stilleri */
+.about-card-item .about-card-text {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s ease;
+}
+
+.about-card-item h3 {
     font-size: 1.8rem;
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    transition: color 0.4s ease, font-size 0.4s ease;
 }
 
-.about-card-item.image-card p {
+.about-card-item.expert-card h3 { color: var(--color-primary) !important; }
+.about-card-item.mission-card h3 { color: var(--color-secondary) !important; }
+.about-card-item.image-card h3 { color: var(--color-primary) !important; }
+
+.about-card-item p {
     color: var(--text-secondary);
+    transition: color 0.4s ease;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
 }
 
-.about-card-item.image-card a {
-    color: var(--color-primary) !important;
+.about-card-item a {
+    font-weight: 800;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.4s ease;
 }
 
-/* SPREAD SINIFI (JS TETİKLEDİĞİNDE SADECE HAFİF BİR YUKARI KAYMA EFEKTİ) */
+.about-card-item.expert-card a { color: var(--color-primary) !important; }
+.about-card-item.mission-card a { color: var(--color-secondary) !important; }
+.about-card-item.image-card a { color: var(--color-primary) !important; }
+
+/* HOVER DURUMUNDA GENİŞLEME VE GÖRSELİN AÇILMASI */
+.about-cards-wrap:hover .about-card-item {
+    flex: 0.7; /* Hover edilmeyen kartlar daralır */
+}
+
+.about-cards-wrap .about-card-item:hover {
+    flex: 1.7; /* Üzerine gelinen genişler */
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-premium);
+    z-index: 5;
+    border-color: transparent;
+    color: #ffffff !important;
+}
+
+.about-cards-wrap .about-card-item:hover::before,
+.about-cards-wrap .about-card-item:hover::after {
+    opacity: 1; /* Arka plan resmi ve maskesi görünür olur */
+}
+
+.about-cards-wrap .about-card-item:hover h3 {
+    color: #ffffff !important;
+    font-size: 2.1rem;
+}
+
+.about-cards-wrap .about-card-item:hover p {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.about-cards-wrap .about-card-item:hover a {
+    color: var(--color-secondary) !important;
+}
+
+/* SPREAD SINIFI (JS TETİKLEDİĞİNDE SIFIRLANIR - FARKLI BİR DURUM ALMAZ) */
 .about-cards-wrap.spread .about-card-item {
-    transform: translateY(0);
-}
-
-/* Fareyle Kartın Üzerine Gelince Öne Çıkma */
-.about-card-item:hover {
-    z-index: 5 !important;
-    transform: translateY(-10px) scale(1.02) !important;
-    box-shadow: var(--shadow-lg) !important;
+    transform: none;
 }
 
 
