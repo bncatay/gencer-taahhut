@@ -8,21 +8,21 @@
 
 
 :root {
-    /* Renk Paleti - Zümrüt Temalı Premium Lüks Açık Tema */
+    /* Renk Paleti - Turkuaz Temalı Premium Lüks Açık Tema */
     --bg-primary: #fcfcfb; /* Parlak beyaz yerine sıcak, lüks keten/krem tonu */
     --bg-secondary: #f4f3ee; /* Katmanlı zeminler ve kartlar için yumuşak kum tonu */
     --bg-tertiary: #e9e8e0; /* Derinlik veren koyu krem tonu */
-    --text-primary: #121e1a; /* Çok sert siyah yerine lüks koyu orman yeşili/siyah tonu */
-    --text-secondary: #3c4c46; /* Gövde metinleri için yumuşak koyu gri-yeşil */
-    --text-muted: #72847d;
+    --text-primary: #0c191a; /* Çok sert siyah yerine lüks koyu turkuaz-siyah tonu */
+    --text-secondary: #334a4d; /* Gövde metinleri için yumuşak koyu gri-turkuaz */
+    --text-muted: #698084;
     
-    --color-primary: #059669; /* Zümrüt Yeşili - Açık zeminde daha iyi görünürlük için kontrastı artırıldı */
-    --color-primary-hover: #10b981;
+    --color-primary: #0e7490; /* Turkuaz - Açık zeminde daha iyi görünürlük için zengin turkuaz */
+    --color-primary-hover: #06b6d4;
     --color-secondary: #b8862d; /* Şampanya/Bronz Altını - Açık zeminde zengin kontrast */
     --color-secondary-hover: #d9a043;
-    --color-accent: #059669;
-    --color-accent-hover: #10b981;
-    --color-border: rgba(18, 30, 26, 0.08); /* Açık renk zeminle uyumlu yumuşak sınırlar */
+    --color-accent: #0e7490;
+    --color-accent-hover: #06b6d4;
+    --color-border: rgba(12, 25, 26, 0.08); /* Açık renk zeminle uyumlu yumuşak sınırlar */
     --font-main: 'Plus Jakarta Sans', sans-serif;
     
     /* Gölgeler ve Köşe Yumuşaklıkları */
@@ -57,8 +57,8 @@ body {
     background-color: var(--bg-primary);
     /* Mimari Çizim Eskiz Defteri Kılavuz Çizgileri - Açık zemine uygun koyulukta */
     background-image: 
-        linear-gradient(rgba(5, 150, 105, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(5, 150, 105, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(14, 116, 144, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 116, 144, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
     background-position: center;
     color: var(--text-primary);
@@ -558,12 +558,12 @@ header.scrolled .logo-img {
     border-color: rgba(184, 134, 45, 0.3);
 }
 .service-card.insaat:hover { 
-    box-shadow: 0 30px 60px -15px rgba(5, 150, 105, 0.12); 
-    border-color: rgba(5, 150, 105, 0.3);
+    box-shadow: 0 30px 60px -15px rgba(14, 116, 144, 0.12); 
+    border-color: rgba(14, 116, 144, 0.3);
 }
 .service-card.atolye:hover { 
-    box-shadow: 0 30px 60px -15px rgba(5, 150, 105, 0.12); 
-    border-color: rgba(5, 150, 105, 0.3);
+    box-shadow: 0 30px 60px -15px rgba(14, 116, 144, 0.12); 
+    border-color: rgba(14, 116, 144, 0.3);
 }
 
 .service-card.mobilya:hover::before { background-color: var(--color-secondary); }
@@ -787,9 +787,9 @@ header.scrolled .logo-img {
     }
 }
 
-/* Footer Tasarımı - Sayfayı Dengeleyen Koyu Zümrüt/Siyah Kontrast Zemin */
+/* Footer Tasarımı - Sayfayı Dengeleyen Koyu Turkuaz/Siyah Kontrast Zemin */
 footer {
-    background-color: #0b1512;
+    background-color: #061d24;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding: 100px 0 40px 0;
     color: #ffffff;
@@ -821,7 +821,7 @@ footer {
 .social-icon {
     width: 44px;
     height: 44px;
-    background-color: #12211c;
+    background-color: #0c2a33;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-md);
     display: flex;
