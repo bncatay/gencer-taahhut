@@ -629,6 +629,13 @@ header.scrolled .logo-img {
     background-image: radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
 }
 
+.about-teaser-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: center;
+}
+
 .about-teaser-header {
     max-width: 800px;
 }
