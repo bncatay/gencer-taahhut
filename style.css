@@ -55,13 +55,10 @@ html {
 body {
     font-family: var(--font-main);
     background-color: #faf9f6; /* Lüks sıcak fildişi/krem zemin */
-    /* Katmanlı Premium Tasarım: Nokta Izgarası > Yumuşatıcı Maske > Doğal Mermer Dokusu */
-    background-image: 
-        radial-gradient(rgba(12, 25, 26, 0.05) 1.2px, transparent 1.2px), /* Mimari nokta kılavuzları */
-        linear-gradient(rgba(250, 249, 246, 0.40), rgba(250, 249, 246, 0.40)), /* Mermeri yumuşatıp arka plana gömen maske */
-        url('images/bg-texture.png'); /* Doğal lüks mermer dokusu */
-    background-size: 40px 40px, 100% 100%, 700px 700px;
-    background-repeat: repeat, no-repeat, repeat;
+    /* Mimar noktaları ve temiz düz zemin */
+    background-image: radial-gradient(rgba(12, 25, 26, 0.04) 1.2px, transparent 1.2px); /* Mimari nokta kılavuzları */
+    background-size: 40px 40px;
+    background-repeat: repeat;
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
@@ -941,9 +938,9 @@ footer {
 
 /* Sayfa Şablonları Ortak Yapı (Alt Sayfalar İçin) */
 .page-header {
-    padding-top: 200px;
-    padding-bottom: 80px;
-    background: radial-gradient(circle at center, rgba(17, 24, 39, 0.7) 0%, var(--bg-primary) 100%);
+    padding-top: 180px;
+    padding-bottom: 60px;
+    background-color: var(--bg-secondary);
     border-bottom: 1px solid var(--color-border);
     text-align: center;
 }
