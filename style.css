@@ -812,29 +812,121 @@ header.scrolled .logo-img {
     .about-cards-wrap {
         flex-direction: column;
         align-items: center;
-        gap: 2.5rem;
+        gap: 2rem;
         margin-top: 2rem;
     }
     
-    .about-card-item.expert-card,
-    .about-card-item.mission-card,
-    .about-card-item.image-card {
+    .about-cards-wrap .about-card-item {
+        flex: none !important;
+        width: 100% !important;
+        max-width: 550px !important;
+        min-height: auto !important;
+        padding: 40px 30px !important;
         transform: none !important;
         left: 0 !important;
         margin-left: 0 !important;
-        max-width: 550px;
         top: 0 !important;
+        background-color: var(--bg-secondary) !important;
+        color: var(--text-primary) !important;
+        box-shadow: var(--shadow-md) !important;
+    }
+
+    /* Mobilde hover ile genişlemeyi ve arka plan resmini kaldırıyoruz */
+    .about-cards-wrap .about-card-item::before,
+    .about-cards-wrap .about-card-item::after {
+        display: none !important;
+    }
+
+    .about-cards-wrap .about-card-item h3 {
+        color: var(--text-primary) !important;
+        font-size: 1.6rem !important;
+    }
+
+    .about-cards-wrap .about-card-item p {
+        color: var(--text-secondary) !important;
+    }
+
+    .about-cards-wrap .about-card-item a {
+        color: var(--color-primary) !important;
+    }
+    
+    .about-cards-wrap:hover .about-card-item {
+        flex: none !important;
     }
 }
 
 @media (max-width: 768px) {
     .about-teaser-section {
-        padding: 80px 0;
+        padding: 60px 0;
     }
     
     .teaser-stats-row {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    /* Hero Bölümü Mobil Optimizasyonu */
+    .hero {
+        height: 75vh !important;
+        min-height: 480px !important;
+        position: relative !important;
+        padding: 0 !important;
+    }
+    
+    .hero-slider {
+        height: 100% !important;
+    }
+    
+    .hero-slide {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        padding: 0 !important;
+    }
+    
+    .hero-slide-content {
+        padding: 0 1.5rem !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
+    .hero-slide-content h1 {
+        font-size: 2.2rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 1.2rem !important;
+    }
+    
+    .hero-slide-content p {
+        font-size: 0.95rem !important;
+        margin-bottom: 1.8rem !important;
+    }
+    
+    .hero-actions {
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 0.75rem !important;
+    }
+    
+    .hero-actions .btn {
+        width: auto !important;
+        padding: 0.75rem 1.25rem !important;
+        font-size: 0.85rem !important;
+    }
+
+    /* Biz Kimiz Görsel Hizalaması */
+    .about-teaser-image {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-teaser-image img {
+        max-width: 70% !important;
+        height: auto !important;
     }
 }
 
