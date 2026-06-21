@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maker ve Robotik Kodlama Atölyesi | Gencer Taahhüt</title>
     <meta name="description" content="Çocuklar için maker atölyesi, robotik kodlama eğitimleri, 3D yazıcı tasarımı ve algoritmik düşünme odaklı yeni nesil teknoloji eğitimleri.">
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=7">
     <!-- AOS Animation Library CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- Google Model Viewer for 3D Models -->
@@ -78,8 +78,6 @@
                     <model-viewer 
                         src="robotik-kodlama-atolyesi/robotik-kodlama-3d.glb" 
                         alt="Robotik Kodlama 3D Model" 
-                        auto-rotate 
-                        camera-controls 
                         ar
                         shadow-intensity="1"
                         style="width: 100%; height: 400px; background-color: rgba(17, 24, 39, 0.4); border-radius: var(--radius-lg); border: 1px solid var(--color-border); display: block; margin: 0 auto;"
@@ -279,6 +277,21 @@
             once: true,
             offset: 120
         });
+
+        // 3D Model otomatik her yöne yavaşça döndürme animasyonu
+        const modelViewer = document.querySelector('#workshop-3d-model');
+        if (modelViewer) {
+            let theta = 0;
+            const animate3D = () => {
+                theta += 0.25; // Yatay dönme hızı
+                const phi = 75 + Math.sin(theta * 0.03) * 15; // Dikey salınım (yukarı-aşağı dalgalanma)
+                modelViewer.cameraOrbit = `${theta}deg ${phi}deg auto`;
+                requestAnimationFrame(animate3D);
+            };
+            modelViewer.addEventListener('load', () => {
+                animate3D();
+            });
+        }
     </script>
     <!-- Custom Cursor (Lüks Hareketli İmleç) -->
     <div id="custom-cursor"></div>
