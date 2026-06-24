@@ -32,13 +32,13 @@
             color: var(--text-secondary);
         }
         .contact-form {
-            background: rgba(15, 18, 36, 0.5);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.06);
+            border: 1px solid var(--color-border);
             padding: 3rem;
             border-radius: var(--radius-lg);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            box-shadow: var(--shadow-lg);
         }
         .form-group {
             margin-bottom: 1.5rem;
@@ -89,9 +89,9 @@
     <div class="glow-orb glow-orb-3"></div>
 
     <!-- Preloader (Sayfa Yükleniyor Ekranı) -->
-    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #070913; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.5s ease, visibility 0.5s ease;">
-        <div style="width: 50px; height: 50px; border: 2px solid rgba(6,182,212,0.2); border-top: 2px solid #06b6d4; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; box-shadow: 0 0 20px rgba(6,182,212,0.3);"></div>
-        <img src="logo-icon.png" alt="Gencer Taahhüt" style="height: 60px; width: auto; object-fit: contain; filter: brightness(1.2);">
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #FAFAF9; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.5s ease, visibility 0.5s ease;">
+        <div style="width: 50px; height: 50px; border: 2px solid rgba(161,98,7,0.15); border-top: 2px solid #A16207; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; box-shadow: 0 0 20px rgba(161,98,7,0.1);"></div>
+        <img src="logo-icon.png" alt="Gencer Taahhüt" style="height: 60px; width: auto; object-fit: contain;">
         <style>
             @keyframes spin {
                 0% { transform: rotate(0deg); }

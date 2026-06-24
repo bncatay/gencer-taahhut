@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
             target.addEventListener("mouseenter", () => {
                 cursor.style.width = "56px";
                 cursor.style.height = "56px";
-                cursor.style.backgroundColor = "rgba(6, 182, 212, 0.08)";
+                cursor.style.backgroundColor = "rgba(161, 98, 7, 0.08)";
                 cursor.style.borderColor = "var(--color-primary)";
             });
             target.addEventListener("mouseleave", () => {
@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
             width: 400px;
             height: 400px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(161, 98, 7, 0.05) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
             transform: translate(-50%, -50%);
