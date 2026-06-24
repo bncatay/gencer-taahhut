@@ -381,3 +381,89 @@ function closeLightbox() {
     }
 }
 
+// 11. BEFORE/AFTER SLIDER ETKİLEŞİM KODU
+document.addEventListener("DOMContentLoaded", () => {
+    const sliders = document.querySelectorAll(".before-after-container");
+    
+    sliders.forEach(slider => {
+        const handle = slider.querySelector(".ba-handle");
+        const afterImg = slider.querySelector(".ba-after");
+        let isDragging = false;
+
+        if (!handle || !afterImg) return;
+
+        function updateSlider(clientX) {
+            const rect = slider.getBoundingClientRect();
+            const position = clientX - rect.left;
+            let percentage = (position / rect.width) * 100;
+
+            // Sınırlandırma (%0 - %100 arası)
+            if (percentage < 0) percentage = 0;
+            if (percentage > 100) percentage = 100;
+
+            handle.style.left = `${percentage}%`;
+            afterImg.style.width = `${percentage}%`;
+        }
+
+        // Fare olayları
+        handle.addEventListener("mousedown", () => isDragging = true);
+        window.addEventListener("mouseup", () => isDragging = false);
+        
+        window.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+            updateSlider(e.clientX);
+        });
+
+        // Mobil Dokunmatik ekran olayları (Touch)
+        handle.addEventListener("touchstart", () => isDragging = true);
+        window.addEventListener("touchend", () => isDragging = false);
+        
+        window.addEventListener("touchmove", (e) => {
+            if (!isDragging) return;
+            if (e.touches.length > 0) {
+                updateSlider(e.touches[0].clientX);
+            }
+        });
+
+        // Konteyner üzerine tıklayınca da sürgüyü oraya atlasın
+        slider.addEventListener("click", (e) => {
+            if (e.target === handle) return;
+            updateSlider(e.clientX);
+        });
+    });
+
+    // 12. REFERANS / TESTIMONIAL CAROUSEL DÖNGÜSÜ
+    const tSlides = document.querySelectorAll(".testimonial-slide");
+    const tDots = document.querySelectorAll(".td-dot");
+    let tCurrent = 0;
+    let tInterval;
+
+    function showTestimonial(index) {
+        if (!tSlides.length) return;
+        tSlides.forEach(slide => slide.classList.remove("active"));
+        tDots.forEach(dot => dot.classList.remove("active"));
+
+        tCurrent = (index + tSlides.length) % tSlides.length;
+        tSlides[tCurrent].classList.add("active");
+        tDots[tCurrent].classList.add("active");
+    }
+
+    tDots.forEach((dot, idx) => {
+        dot.addEventListener("click", () => {
+            showTestimonial(idx);
+            resetTestimonialTimer();
+        });
+    });
+
+    function resetTestimonialTimer() {
+        if (tInterval) clearInterval(tInterval);
+        tInterval = setInterval(() => {
+            showTestimonial(tCurrent + 1);
+        }, 5000); // Her 5 saniyede bir geçsin
+    }
+
+    if (tSlides.length > 0) {
+        resetTestimonialTimer();
+    }
+});
+
