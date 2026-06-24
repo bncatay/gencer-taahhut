@@ -209,14 +209,14 @@ document.addEventListener("DOMContentLoaded", () => {
             target.addEventListener("mouseenter", () => {
                 cursor.style.width = "56px";
                 cursor.style.height = "56px";
-                cursor.style.backgroundColor = "rgba(226, 183, 103, 0.1)"; // Şampanya Altını Şeffaf Dolgu
-                cursor.style.borderColor = "var(--color-primary)"; // Zümrüt Yeşili Çerçeve
+                cursor.style.backgroundColor = "rgba(6, 182, 212, 0.08)";
+                cursor.style.borderColor = "var(--color-primary)";
             });
             target.addEventListener("mouseleave", () => {
                 cursor.style.width = "32px";
                 cursor.style.height = "32px";
                 cursor.style.backgroundColor = "transparent";
-                cursor.style.borderColor = "var(--color-secondary)"; // Şampanya Altını Çerçeve
+                cursor.style.borderColor = "var(--color-primary)";
             });
         });
 
@@ -235,6 +235,29 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(animateCursor);
         };
         animateCursor();
+    }
+
+    // 10. Mouse Takip Eden Glow Orb Efekti (Dinamik Arka Plan Işığı)
+    if (window.innerWidth > 768) {
+        const mouseGlow = document.createElement("div");
+        mouseGlow.style.cssText = `
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1), top 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: blur(30px);
+        `;
+        document.body.appendChild(mouseGlow);
+
+        document.addEventListener("mousemove", (e) => {
+            mouseGlow.style.left = e.clientX + "px";
+            mouseGlow.style.top  = e.clientY + "px";
+        });
     }
 
     // 8. Ana Sayfa Premium Slider Mantığı
