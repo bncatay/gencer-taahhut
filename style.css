@@ -1090,6 +1090,47 @@ footer::before {
 
 .page-content { padding: 100px 0; }
 
+/* Responsive Grid Systems */
+.page-grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.page-grid-2-col-left-heavy {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.page-grid-2-col-right-heavy {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.vision-mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.hero-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
 /* ==========================================
    GALERİ
    ========================================== */
@@ -1321,6 +1362,15 @@ footer::before {
         text-align: center;
     }
 
+    .page-grid-2-col,
+    .page-grid-2-col-left-heavy,
+    .page-grid-2-col-right-heavy,
+    .vision-mission-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
     .services-grid { grid-template-columns: 1fr 1fr; }
 
     .footer-grid {
@@ -1362,6 +1412,10 @@ footer::before {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+    }
+
+    #workshop-3d-model {
+        height: 300px !important;
     }
 }
 
