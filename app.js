@@ -185,57 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 7. Lüks Custom Cursor Animasyonu (Masaüstü için LERP - Yumuşak Takip)
-    const cursor = document.getElementById("custom-cursor");
-    const cursorDot = document.getElementById("custom-cursor-dot");
 
-    if (cursor && cursorDot && window.innerWidth > 1024) {
-        let mouseX = -100;
-        let mouseY = -100;
-        let cursorX = -100;
-        let cursorY = -100;
-        let dotX = -100;
-        let dotY = -100;
-
-        document.addEventListener("mousemove", (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        // Buton ve linklerin üzerine gelince imlecin büyümesi
-        const hoverTargets = document.querySelectorAll("a, button, select, textarea, input, .btn, .faq-question, .gallery-item, .social-icon");
-        
-        hoverTargets.forEach(target => {
-            target.addEventListener("mouseenter", () => {
-                cursor.style.width = "56px";
-                cursor.style.height = "56px";
-                cursor.style.backgroundColor = "rgba(161, 98, 7, 0.08)";
-                cursor.style.borderColor = "var(--color-primary)";
-            });
-            target.addEventListener("mouseleave", () => {
-                cursor.style.width = "32px";
-                cursor.style.height = "32px";
-                cursor.style.backgroundColor = "transparent";
-                cursor.style.borderColor = "var(--color-primary)";
-            });
-        });
-
-        const animateCursor = () => {
-            // LERP Formülü: Yumuşak gecikmeli takip efekti
-            cursorX += (mouseX - cursorX) * 0.1;
-            cursorY += (mouseY - cursorY) * 0.1;
-            dotX += (mouseX - dotX) * 0.25;
-            dotY += (mouseY - dotY) * 0.25;
-
-            cursor.style.left = `${cursorX}px`;
-            cursor.style.top = `${cursorY}px`;
-            cursorDot.style.left = `${dotX}px`;
-            cursorDot.style.top = `${dotY}px`;
-
-            requestAnimationFrame(animateCursor);
-        };
-        animateCursor();
-    }
 
 
 
