@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="style.css?v=11">
     <!-- AOS Animation Library CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- Google Model Viewer for 3D Models -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
 </head>
 <body>
 
@@ -80,14 +79,7 @@
             <!-- Detaylı Açıklama -->
             <div class="page-grid-2-col-right-heavy">
                 <div data-aos="fade-right" data-aos-duration="1000" style="width: 100%;">
-                    <model-viewer 
-                        src="robotik-kodlama-atolyesi/robotik-kodlama-3d.glb" 
-                        alt="Robotik Kodlama 3D Model" 
-                        ar
-                        shadow-intensity="1"
-                        style="width: 100%; height: 400px; background-color: rgba(17, 24, 39, 0.4); border-radius: var(--radius-lg); border: 1px solid var(--color-border); display: block; margin: 0 auto;"
-                        id="workshop-3d-model">
-                    </model-viewer>
+                    <img src="images/slider-atolye.png" alt="Robotik Kodlama Atölyesi" style="width: 100%; height: 400px; object-fit: cover; border-radius: var(--radius-lg); border: 1px solid var(--color-border); display: block; margin: 0 auto; box-shadow: var(--shadow-lg);">
                 </div>
                 <div data-aos="fade-left" data-aos-duration="1000">
                     <span class="section-tag" style="color: var(--color-accent);">Anahtar Teslim Projeler</span>
@@ -279,29 +271,9 @@
             once: true,
             offset: 120
         });
-
-        // 3D Model otomatik her yöne yavaşça döndürme animasyonu
-        const modelViewer = document.querySelector('#workshop-3d-model');
-        if (modelViewer) {
-            let theta = 0;
-            let animationStarted = false;
-            const animate3D = () => {
-                theta += 0.25; // Yatay dönme hızı
-                const phi = 75 + Math.sin(theta * 0.03) * 15; // Dikey salınım (yukarı-aşağı dalgalanma)
-                modelViewer.cameraOrbit = `${theta}deg ${phi}deg auto`;
-                requestAnimationFrame(animate3D);
-            };
-            modelViewer.addEventListener('load', () => {
-                if (!animationStarted) {
-                    animationStarted = true;
-                    animate3D();
-                }
-            });
-        }
     </script>
-    <!-- Custom Cursor (Lüks Hareketli İmleç) -->
-    <div id="custom-cursor"></div>
-    <div id="custom-cursor-dot"></div>
+
+
 </body>
 </html>
 
