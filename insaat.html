@@ -19,7 +19,7 @@
     <!-- Preloader (Sayfa Yükleniyor Ekranı) -->
     <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #FAFAF9; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.5s ease, visibility 0.5s ease;">
         <div style="width: 50px; height: 50px; border: 2px solid rgba(161,98,7,0.15); border-top: 2px solid #A16207; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; box-shadow: 0 0 20px rgba(161,98,7,0.1);"></div>
-        <img src="logo-icon.png" alt="Gencer Taahhüt" style="height: 60px; width: auto; object-fit: contain;">
+        <img loading="lazy" src="logo-icon.png" alt="Gencer Taahhüt" style="height: 60px; width: auto; object-fit: contain;">
         <style>
             @keyframes spin {
                 0% { transform: rotate(0deg); }
@@ -35,7 +35,7 @@
         
         <div class="container nav-container">
             <a href="index.html" class="logo-link" id="header-logo-link">
-                <img src="logo-icon.png" alt="Gencer Taahhüt Logo" class="logo-img" id="header-logo-img">
+                <img loading="lazy" src="logo-icon.png" alt="Gencer Taahhüt Logo" class="logo-img" id="header-logo-img">
                 <div class="logo-text-group">
                     <div class="logo-text" id="header-logo-text">Gencer <span>Taahhüt</span></div>
                     <div class="logo-subtext">Mobilya &bull; İnşaat &bull; Atölye</div>
@@ -85,7 +85,7 @@
                     <a href="iletisim.html" class="btn btn-primary" style="background-color: var(--color-primary); margin-top: 1rem;" id="btn-construction-quote">Projeniz İçin Teklif Alın</a>
                 </div>
                 <div data-aos="fade-left" data-aos-duration="1000">
-                    <img src="images/insaat-main.png" alt="İnşaat Projeleri ve Mühendislik" class="hero-img" style="max-height: 400px; display: block; margin: 0 auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);" id="construction-main-img">
+                    <img loading="lazy" src="images/insaat-main.jpg" alt="İnşaat Projeleri ve Mühendislik" class="hero-img" style="max-height: 400px; display: block; margin: 0 auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);" id="construction-main-img">
                 </div>
             </div>
 
@@ -134,7 +134,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <a href="index.html" class="logo-link">
-                    <img src="logo-icon.png" alt="Gencer Taahhüt Footer Logo" class="logo-img">
+                    <img loading="lazy" src="logo-icon.png" alt="Gencer Taahhüt Footer Logo" class="logo-img">
                     <div class="logo-text-group">
                     <div class="logo-text">Gencer <span>Taahhüt</span></div>
                     <div class="logo-subtext">Mobilya &bull; İnşaat &bull; Atölye</div>
@@ -207,4 +207,5 @@
     <div id="custom-cursor-dot"></div>
 </body>
 </html>
+
 
