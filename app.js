@@ -237,26 +237,28 @@ document.addEventListener("DOMContentLoaded", () => {
         animateCursor();
     }
 
-    // 10. Mouse Takip Eden Glow Orb Efekti (Dinamik Arka Plan Işığı)
+    // 10. Mouse Takip Eden Glow Orb Efekti (Dinamik Arka Plan Işığı - GPU Hızlandırmalı)
     if (window.innerWidth > 768) {
         const mouseGlow = document.createElement("div");
         mouseGlow.style.cssText = `
             position: fixed;
+            top: 0;
+            left: 0;
             width: 400px;
             height: 400px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(161, 98, 7, 0.05) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
-            transform: translate(-50%, -50%);
-            transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1), top 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translate3d(-50%, -50%, 0);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             filter: blur(30px);
+            will-change: transform;
         `;
         document.body.appendChild(mouseGlow);
 
         document.addEventListener("mousemove", (e) => {
-            mouseGlow.style.left = e.clientX + "px";
-            mouseGlow.style.top  = e.clientY + "px";
+            mouseGlow.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate3d(-50%, -50%, 0)`;
         });
     }
 

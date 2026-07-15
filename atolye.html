@@ -284,6 +284,7 @@
         const modelViewer = document.querySelector('#workshop-3d-model');
         if (modelViewer) {
             let theta = 0;
+            let animationStarted = false;
             const animate3D = () => {
                 theta += 0.25; // Yatay dönme hızı
                 const phi = 75 + Math.sin(theta * 0.03) * 15; // Dikey salınım (yukarı-aşağı dalgalanma)
@@ -291,7 +292,10 @@
                 requestAnimationFrame(animate3D);
             };
             modelViewer.addEventListener('load', () => {
-                animate3D();
+                if (!animationStarted) {
+                    animationStarted = true;
+                    animate3D();
+                }
             });
         }
     </script>
