@@ -976,7 +976,16 @@ footer::before {
     line-height: 1.7;
 }
 
-.footer-brand .logo-text span { color: #ffffff; }
+.footer-brand .logo-text {
+    color: var(--color-primary) !important; /* Gold/Bronze */
+}
+.footer-brand .logo-text span { 
+    color: #ffffff !important; /* Beyaz */
+}
+.footer-brand .logo-subtext {
+    color: #ffffff !important; /* Beyaz */
+    opacity: 0.6;
+}
 
 .footer-socials {
     display: flex;
