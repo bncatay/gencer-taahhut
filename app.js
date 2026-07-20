@@ -1,5 +1,5 @@
 /**
- * GENCER PROJE - İnteraktif Uygulama Mantığı (JavaScript)
+ * Gencer Proje - İnteraktif Uygulama Mantığı (JavaScript)
  */
 
 document.addEventListener("DOMContentLoaded", () => {

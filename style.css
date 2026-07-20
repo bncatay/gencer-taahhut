@@ -1,5 +1,5 @@
 /* 
-   GENCER PROJE - Premium Light Luxury UI/UX Tasarım Sistemi
+   Gencer Proje - Premium Light Luxury UI/UX Tasarım Sistemi
    Apple HIG + Material Design + Community .cursorrules standartları
 */
 
@@ -227,7 +227,7 @@ header.scrolled .logo-img {
     font-size: 1.35rem;
     font-weight: 800;
     letter-spacing: -0.5px;
-    text-transform: uppercase;
+    text-transform: none;
     color: #000000; /* Siyah */
     transition: var(--transition-normal);
     line-height: 1.1;
@@ -243,7 +243,7 @@ header.scrolled .logo-img {
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    text-transform: uppercase;
+    text-transform: none;
     color: #000000; /* Siyah */
     opacity: 0.7; /* Hafif şeffaf mat duruş */
     line-height: 1;
@@ -545,7 +545,7 @@ header.scrolled .logo-img {
 .section-tag {
     font-size: 0.95rem;
     font-weight: 800;
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 4px;
     color: var(--color-primary);
     margin-bottom: 1.2rem;
@@ -901,7 +901,7 @@ header.scrolled .logo-img {
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--text-muted);
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 1px;
 }
 
@@ -1007,7 +1007,7 @@ footer::before {
 .footer-heading {
     font-size: 0.85rem;
     font-weight: 800;
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 2px;
     margin-bottom: 2rem;
     color: var(--text-primary);
@@ -1463,7 +1463,7 @@ footer::before {
     font-weight: 700;
     font-size: 1rem;
     color: var(--color-primary);
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 1px;
 }
 
