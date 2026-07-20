@@ -10,7 +10,8 @@
    ========================================== */
 :root {
     /* Açık Zemin Katmanları */
-    --bg-primary:   #63C5DA;  /* Sky Blue arka plan rengi */
+    --bg-primary:   #FFFFFF;  /* Ana arka plan fallback */
+    --bg-gradient:  linear-gradient(to right, rgba(161, 98, 7, 0.12) 0%, #FFFFFF 50%, rgba(161, 98, 7, 0.12) 100%); /* Sağ ve sol gold, orta beyaz gradient */
     --bg-secondary: #FFFFFF;  /* Kartlar ve beyaz bölümler */
     --bg-tertiary:  #F4F4F3;  /* Üçüncü katman, hafif gri elevated alanlar */
     --bg-glass:     rgba(255, 255, 255, 0.75);  /* Glassmorphism açık kartlar */
@@ -82,9 +83,12 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
-    /* Mimari nokta grid - light theme */
-    background-image: radial-gradient(rgba(161, 98, 7, 0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
+    /* Mimari nokta grid + Gold-white gradient */
+    background-image: 
+        radial-gradient(rgba(161, 98, 7, 0.04) 1px, transparent 1px),
+        var(--bg-gradient);
+    background-size: 40px 40px, auto;
+    background-attachment: scroll, fixed;
 }
 
 /* ==========================================
