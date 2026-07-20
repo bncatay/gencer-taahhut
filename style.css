@@ -209,7 +209,7 @@ header.scrolled {
     object-fit: contain;
     transition: var(--transition-normal);
     display: block;
-    filter: grayscale(100%) opacity(0.85);
+    filter: brightness(0);
 }
 
 header.scrolled .logo-img {
@@ -228,14 +228,14 @@ header.scrolled .logo-img {
     font-weight: 800;
     letter-spacing: -0.5px;
     text-transform: uppercase;
-    color: #4B5563; /* Premium Gri */
+    color: #000000; /* Siyah */
     transition: var(--transition-normal);
     line-height: 1.1;
     display: block;
 }
 
 .logo-text span {
-    color: #6B7280; /* Orta Ton Gri */
+    color: #1C1917; /* Koyu Kömür */
 }
 
 .logo-subtext {
@@ -244,8 +244,8 @@ header.scrolled .logo-img {
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #9CA3AF; /* Açık Gri */
-    opacity: 0.85;
+    color: #000000; /* Siyah */
+    opacity: 0.7; /* Hafif şeffaf mat duruş */
     line-height: 1;
     margin-top: 0.2rem;
     transition: var(--transition-normal);
