@@ -222,6 +222,7 @@ header.scrolled .logo-img {
 }
 
 .logo-text {
+    font-family: var(--font-title);
     font-size: 1.35rem;
     font-weight: 800;
     letter-spacing: -0.5px;
@@ -237,6 +238,7 @@ header.scrolled .logo-img {
 }
 
 .logo-subtext {
+    font-family: var(--font-title);
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 1.5px;
