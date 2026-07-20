@@ -940,7 +940,7 @@ header.scrolled .logo-img {
    FOOTER
    ========================================== */
 footer {
-    background-color: var(--color-primary);
+    background-color: #1a1715; /* Sıcak koyu taş/kömür rengi */
     border-top: 1px solid var(--color-border);
     padding: 100px 0 40px 0;
     color: #ffffff;
@@ -974,6 +974,17 @@ footer::before {
     margin-top: 1rem;
     margin-bottom: 2rem;
     line-height: 1.7;
+}
+
+.footer-brand .logo-text {
+    color: var(--color-primary) !important; /* Gold/Bronze */
+}
+.footer-brand .logo-text span { 
+    color: #ffffff !important; /* Beyaz */
+}
+.footer-brand .logo-subtext {
+    color: #ffffff !important; /* Beyaz */
+    opacity: 0.6;
 }
 
 .footer-socials {
