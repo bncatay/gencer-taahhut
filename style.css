@@ -940,10 +940,10 @@ header.scrolled .logo-img {
    FOOTER
    ========================================== */
 footer {
-    background-color: #1a1715; /* Sıcak koyu taş/kömür rengi */
+    background-color: var(--bg-tertiary);
     border-top: 1px solid var(--color-border);
     padding: 100px 0 40px 0;
-    color: #ffffff;
+    color: var(--text-primary);
     position: relative;
     overflow: hidden;
 }
@@ -953,7 +953,7 @@ footer::before {
     position: absolute;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.04) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(161, 98, 7, 0.03) 0%, transparent 70%);
     top: -100px;
     right: -100px;
     border-radius: 50%;
@@ -969,22 +969,11 @@ footer::before {
 }
 
 .footer-brand p {
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-secondary);
     font-size: 0.95rem;
     margin-top: 1rem;
     margin-bottom: 2rem;
     line-height: 1.7;
-}
-
-.footer-brand .logo-text {
-    color: var(--color-primary) !important; /* Gold/Bronze */
-}
-.footer-brand .logo-text span { 
-    color: #ffffff !important; /* Beyaz */
-}
-.footer-brand .logo-subtext {
-    color: #ffffff !important; /* Beyaz */
-    opacity: 0.6;
 }
 
 .footer-socials {
@@ -1008,7 +997,7 @@ footer::before {
 }
 
 .social-icon:hover {
-    background: linear-gradient(135deg, var(--color-primary), #0891b2);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
     color: #fff;
     border-color: transparent;
     transform: translateY(-4px);
@@ -1021,7 +1010,7 @@ footer::before {
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 2rem;
-    color: #ffffff;
+    color: var(--text-primary);
 }
 
 .footer-links { list-style: none; }
@@ -1029,13 +1018,13 @@ footer::before {
 .footer-links li { margin-bottom: 1rem; }
 
 .footer-links a {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-secondary);
     font-size: 0.95rem;
     transition: var(--transition-normal);
 }
 
 .footer-links a:hover {
-    color: #ffffff;
+    color: var(--color-primary);
     padding-left: 8px;
 }
 
@@ -1044,13 +1033,13 @@ footer::before {
     align-items: center;
     gap: 0.75rem;
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-secondary);
     margin-bottom: 1.25rem;
     transition: var(--transition-normal);
 }
 
 .footer-contact-info p:hover {
-    color: #ffffff;
+    color: var(--color-primary);
 }
 
 .footer-bottom {
@@ -1060,7 +1049,7 @@ footer::before {
     justify-content: space-between;
     align-items: center;
     font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-muted);
     position: relative;
 }
 
