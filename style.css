@@ -10,7 +10,7 @@
    ========================================== */
 :root {
     /* Açık Zemin Katmanları */
-    --bg-primary:   #FAFAF9;  /* En açık zemin - şık kırık taş rengi */
+    --bg-primary:   #63C5DA;  /* Sky Blue arka plan rengi */
     --bg-secondary: #FFFFFF;  /* Kartlar ve beyaz bölümler */
     --bg-tertiary:  #F4F4F3;  /* Üçüncü katman, hafif gri elevated alanlar */
     --bg-glass:     rgba(255, 255, 255, 0.75);  /* Glassmorphism açık kartlar */
