@@ -115,6 +115,30 @@
                 </div>
             </div>
 
+            <!-- Proje Galerisi Bölümü -->
+            <div class="section-header" style="margin-top: 5rem;">
+                <span class="section-tag">Uygulamalarımız</span>
+                <h2>Tamamlanan Projelerimiz</h2>
+            </div>
+
+            <!-- Galeri Filtreleri -->
+            <div class="gallery-filters">
+                <button class="gallery-filter-btn active" data-filter="hepsi">Hepsi</button>
+                <button class="gallery-filter-btn" data-filter="mutfak">Mutfak & Banyo</button>
+                <button class="gallery-filter-btn" data-filter="gardirop">Gardırop & Ev</button>
+                <button class="gallery-filter-btn" data-filter="oel">Özel İmalat</button>
+            </div>
+
+            <!-- Galeri Grid -->
+            <div class="gallery-grid" id="furniture-gallery">
+                <!-- Dinamik olarak doldurulacak -->
+            </div>
+
+            <!-- Daha Fazla Yükle Butonu -->
+            <div style="text-align: center; margin-top: 3rem; margin-bottom: 3rem;">
+                <button id="load-more-btn" class="btn btn-primary" style="background-color: var(--color-secondary);">Daha Fazla Görsel Yükle</button>
+            </div>
+
         </div>
     </section>
 
@@ -164,6 +188,14 @@
         </div>
     </footer>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-modal">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">&times;</button>
+            <img src="" alt="Büyük Görsel" class="lightbox-img" id="lightbox-img">
+        </div>
+    </div>
+
     <!-- Back to Top Button -->
     <button id="back-to-top" style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: var(--color-primary); color: white; border: none; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 999; box-shadow: var(--shadow-lg);" aria-label="Yukarı Çık">↑</button>
 
@@ -180,10 +212,109 @@
             once: true,
             offset: 120
         });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const gallery = document.getElementById("furniture-gallery");
+            const loadMoreBtn = document.getElementById("load-more-btn");
+            const filterBtns = document.querySelectorAll(".gallery-filter-btn");
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const lightboxClose = document.getElementById("lightbox-close");
+            
+            // Generate list of 40 images
+            const images = [];
+            for (let i = 1; i <= 40; i++) {
+                // Category mapping
+                let cat = "";
+                let catName = "";
+                if (i <= 8) {
+                    cat = "gardirop";
+                    catName = "Özel İmalat Gardırop";
+                } else if (i % 3 === 0) {
+                    cat = "mutfak";
+                    catName = "Modern Mutfak & Banyo";
+                } else if (i % 3 === 1) {
+                    cat = "gardirop";
+                    catName = "Özel Tasarım Ev Mobilyası";
+                } else {
+                    cat = "oel";
+                    catName = "Özel Ahşap Tasarım";
+                }
+                
+                images.push({
+                    src: `images/mobilya/mobilya-${i}.jpg`,
+                    title: `${catName} #${i}`,
+                    category: cat
+                });
+            }
+
+            let currentLimit = 12;
+            let activeFilter = "hepsi";
+
+            function renderGallery() {
+                gallery.innerHTML = "";
+                const filtered = images.filter(img => activeFilter === "hepsi" || img.category === activeFilter);
+                const visible = filtered.slice(0, currentLimit);
+
+                visible.forEach(img => {
+                    const item = document.createElement("div");
+                    item.className = "gallery-item";
+                    item.setAttribute("data-aos", "fade-up");
+                    item.innerHTML = `
+                        <img loading="lazy" src="${img.src}" alt="${img.title}">
+                        <div class="gallery-item-overlay">
+                            <span class="gallery-item-category">${img.category === 'mutfak' ? 'Mutfak & Banyo' : img.category === 'gardirop' ? 'Gardırop & Ev' : 'Özel İmalat'}</span>
+                            <h3 class="gallery-item-title">${img.title}</h3>
+                        </div>
+                    `;
+                    
+                    item.addEventListener("click", () => {
+                        lightboxImg.src = img.src;
+                        lightbox.classList.add("active");
+                    });
+
+                    gallery.appendChild(item);
+                });
+
+                // Show/hide load more button
+                if (currentLimit >= filtered.length) {
+                    loadMoreBtn.style.display = "none";
+                } else {
+                    loadMoreBtn.style.display = "inline-block";
+                }
+            }
+
+            // Filter button clicks
+            filterBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    filterBtns.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+                    activeFilter = btn.getAttribute("data-filter");
+                    currentLimit = 12; // Reset limit
+                    renderGallery();
+                });
+            });
+
+            // Load more click
+            loadMoreBtn.addEventListener("click", () => {
+                currentLimit += 12;
+                renderGallery();
+            });
+
+            // Close lightbox
+            lightboxClose.addEventListener("click", () => {
+                lightbox.classList.remove("active");
+            });
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove("active");
+                }
+            });
+            
+            // Initial render
+            renderGallery();
+        });
     </script>
-    <!-- Custom Cursor (Lüks Hareketli İmleç) -->
-    <div id="custom-cursor"></div>
-    <div id="custom-cursor-dot"></div>
 </body>
 </html>
 

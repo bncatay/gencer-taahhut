@@ -115,6 +115,28 @@
                 </div>
             </div>
 
+            <!-- Proje Galerisi Bölümü -->
+            <div class="section-header" style="margin-top: 5rem;">
+                <span class="section-tag">Uygulamalarımız</span>
+                <h2>İnşaat Projelerimiz</h2>
+            </div>
+
+            <!-- Galeri Filtreleri -->
+            <div class="gallery-filters">
+                <button class="gallery-filter-btn active" data-filter="hepsi">Hepsi</button>
+                <button class="gallery-filter-btn" data-filter="villa">Lüks Villa Projeleri</button>
+                <button class="gallery-filter-btn" data-filter="yapi">İnşaat & Taahhüt</button>
+            </div>
+
+            <!-- Galeri Grid -->
+            <div class="gallery-grid" id="construction-gallery">
+                <!-- Dinamik olarak doldurulacak -->
+            </div>
+
+            <!-- Daha Fazla Yükle Butonu -->
+            <div style="text-align: center; margin-top: 3rem; margin-bottom: 3rem;">
+                <button id="load-more-btn" class="btn btn-primary" style="background-color: var(--color-primary);">Daha Fazla Görsel Yükle</button>
+            </div>
 
             <!-- SEO İç Linkleme Bloğu -->
             <div style="background-color: var(--bg-secondary); border-radius: var(--radius-lg); padding: 3rem; margin-top: 5rem; text-align: center; border: 1px solid var(--color-border);" id="construction-seo-block">
@@ -175,6 +197,14 @@
         </div>
     </footer>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-modal">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">&times;</button>
+            <img src="" alt="Büyük Görsel" class="lightbox-img" id="lightbox-img">
+        </div>
+    </div>
+
     <!-- Back to Top Button -->
     <button id="back-to-top" style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: var(--color-primary); color: white; border: none; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 999; box-shadow: var(--shadow-lg);" aria-label="Yukarı Çık">↑</button>
 
@@ -191,10 +221,102 @@
             once: true,
             offset: 120
         });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const gallery = document.getElementById("construction-gallery");
+            const loadMoreBtn = document.getElementById("load-more-btn");
+            const filterBtns = document.querySelectorAll(".gallery-filter-btn");
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const lightboxClose = document.getElementById("lightbox-close");
+            
+            // Generate list of 11 images
+            const images = [];
+            for (let i = 1; i <= 11; i++) {
+                let cat = "";
+                let catName = "";
+                if (i >= 5) {
+                    cat = "villa";
+                    catName = "Lüks Villa İnşaatı";
+                } else {
+                    cat = "yapi";
+                    catName = "Taahhüt & Kaba İnşaat";
+                }
+                
+                images.push({
+                    src: `images/insaat/insaat-${i}.jpg`,
+                    title: `${catName} Projesi #${i}`,
+                    category: cat
+                });
+            }
+
+            let currentLimit = 6;
+            let activeFilter = "hepsi";
+
+            function renderGallery() {
+                gallery.innerHTML = "";
+                const filtered = images.filter(img => activeFilter === "hepsi" || img.category === activeFilter);
+                const visible = filtered.slice(0, currentLimit);
+
+                visible.forEach(img => {
+                    const item = document.createElement("div");
+                    item.className = "gallery-item";
+                    item.setAttribute("data-aos", "fade-up");
+                    item.innerHTML = `
+                        <img loading="lazy" src="${img.src}" alt="${img.title}">
+                        <div class="gallery-item-overlay">
+                            <span class="gallery-item-category">${img.category === 'villa' ? 'Lüks Villa Projesi' : 'İnşaat & Taahhüt'}</span>
+                            <h3 class="gallery-item-title">${img.title}</h3>
+                        </div>
+                    `;
+                    
+                    item.addEventListener("click", () => {
+                        lightboxImg.src = img.src;
+                        lightbox.classList.add("active");
+                    });
+
+                    gallery.appendChild(item);
+                });
+
+                // Show/hide load more button
+                if (currentLimit >= filtered.length) {
+                    loadMoreBtn.style.display = "none";
+                } else {
+                    loadMoreBtn.style.display = "inline-block";
+                }
+            }
+
+            // Filter button clicks
+            filterBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    filterBtns.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+                    activeFilter = btn.getAttribute("data-filter");
+                    currentLimit = 6; // Reset limit
+                    renderGallery();
+                });
+            });
+
+            // Load more click
+            loadMoreBtn.addEventListener("click", () => {
+                currentLimit += 6;
+                renderGallery();
+            });
+
+            // Close lightbox
+            lightboxClose.addEventListener("click", () => {
+                lightbox.classList.remove("active");
+            });
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove("active");
+                }
+            });
+            
+            // Initial render
+            renderGallery();
+        });
     </script>
-    <!-- Custom Cursor (Lüks Hareketli İmleç) -->
-    <div id="custom-cursor"></div>
-    <div id="custom-cursor-dot"></div>
 </body>
 </html>
 
