@@ -209,7 +209,6 @@ header.scrolled {
     object-fit: contain;
     transition: var(--transition-normal);
     display: block;
-    filter: brightness(0);
 }
 
 header.scrolled .logo-img {
@@ -223,31 +222,33 @@ header.scrolled .logo-img {
 }
 
 .logo-text {
-    font-family: var(--font-title);
-    font-size: 1.35rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    text-transform: uppercase;
-    color: #000000; /* Siyah */
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--color-primary); /* Gold/Bronze */
     transition: var(--transition-normal);
     line-height: 1.1;
     display: block;
 }
 
 .logo-text span {
-    color: #1C1917; /* Koyu Kömür */
+    font-family: var(--font-main);
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #94a3b8; /* Açık gümüş/gri */
+    margin-left: 0.25rem;
 }
 
 .logo-subtext {
-    font-family: var(--font-title);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
+    font-family: var(--font-main);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: #000000; /* Siyah */
-    opacity: 0.7; /* Hafif şeffaf mat duruş */
+    color: #0e7490; /* Zümrüt Yeşili/Turkuaz */
     line-height: 1;
-    margin-top: 0.2rem;
+    margin-top: 0.25rem;
     transition: var(--transition-normal);
 }
 
