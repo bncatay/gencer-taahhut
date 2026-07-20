@@ -543,12 +543,12 @@ header.scrolled .logo-img {
 }
 
 .section-tag {
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     color: var(--color-primary);
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     display: inline-block;
 }
 
