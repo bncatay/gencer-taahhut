@@ -231,25 +231,28 @@
             const lightboxImg = document.getElementById("lightbox-img");
             const lightboxClose = document.getElementById("lightbox-close");
             
-            // Generate list of 17 images
+            // Generate list of 18 images
             const images = [];
-            for (let i = 1; i <= 17; i++) {
+            for (let i = 1; i <= 18; i++) {
                 let cat = "";
-                let catName = "";
-                if (i >= 12) {
+                let title = "";
+                if (i === 18) {
+                    cat = "yapi";
+                    title = "Lalapaşa İlçe Halk Kütüphanesi Dış Cephe Projesi";
+                } else if (i >= 12) {
                     cat = "icmekan";
-                    catName = "Ofis & İç Mekan Tadilatı";
+                    title = `Ofis & İç Mekan Tadilatı #${i - 11}`;
                 } else if (i >= 5) {
                     cat = "villa";
-                    catName = "Lüks Villa İnşaatı";
+                    title = `Lüks Villa İnşaatı #${i - 4}`;
                 } else {
                     cat = "yapi";
-                    catName = "Taahhüt & Kaba İnşaat";
+                    title = `Taahhüt & Kaba İnşaat #${i}`;
                 }
                 
                 images.push({
                     src: `images/insaat/insaat-${i}.jpg`,
-                    title: `${catName} Projesi #${i}`,
+                    title: title,
                     category: cat
                 });
             }
