@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maker ve Robotik Kodlama Atölyesi | Gencer Proje</title>
     <meta name="description" content="Çocuklar için maker atölyesi, robotik kodlama eğitimleri, 3D yazıcı tasarımı ve algoritmik düşünme odaklı yeni nesil teknoloji eğitimleri.">
-    <link rel="stylesheet" href="style.css?v=19">
+    <link rel="stylesheet" href="style.css?v=20">
     <!-- AOS Animation Library CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
@@ -201,13 +201,24 @@
     </footer>
 
     <!-- Lightbox Modal -->
+        <!-- Modern Lightbox Modal -->
     <div id="lightbox" class="lightbox-modal">
-        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Önceki Görsel">&#10094;</button>
+        <button class="lightbox-nav-btn lightbox-prev-btn" id="lightbox-prev" aria-label="Önceki Görsel">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        
         <div class="lightbox-content">
-            <button class="lightbox-close" id="lightbox-close">&times;</button>
+            <button class="lightbox-close-btn" id="lightbox-close" aria-label="Kapat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
             <img src="" alt="Büyük Görsel" class="lightbox-img" id="lightbox-img">
         </div>
-        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Sonraki Görsel">&#10095;</button>
+        
+        <button class="lightbox-nav-btn lightbox-next-btn" id="lightbox-next" aria-label="Sonraki Görsel">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+
+        <div class="lightbox-counter" id="lightbox-counter">1 / 1</div>
     </div>
 
     <!-- Back to Top Button -->
@@ -234,6 +245,11 @@
             const lightbox = document.getElementById("lightbox");
             const lightboxImg = document.getElementById("lightbox-img");
             const lightboxClose = document.getElementById("lightbox-close");
+            const lightboxPrev = document.getElementById("lightbox-prev");
+            const lightboxNext = document.getElementById("lightbox-next");
+            const lightboxCounter = document.getElementById("lightbox-counter");
+            let currentLightboxIndex = 0;
+            let activeFilteredImages = [];
             const lightboxPrev = document.getElementById("lightbox-prev");
             const lightboxNext = document.getElementById("lightbox-next");
             let currentLightboxIndex = 0;
@@ -326,7 +342,20 @@
             function showLightboxImage(index) {
                 if (activeFilteredImages.length === 0) return;
                 currentLightboxIndex = (index + activeFilteredImages.length) % activeFilteredImages.length;
-                lightboxImg.src = activeFilteredImages[currentLightboxIndex].src;
+                const targetImg = activeFilteredImages[currentLightboxIndex];
+                
+                lightboxImg.style.opacity = "0.3";
+                lightboxImg.style.transform = "scale(0.97)";
+                
+                setTimeout(() => {
+                    lightboxImg.src = targetImg.src;
+                    lightboxImg.style.opacity = "1";
+                    lightboxImg.style.transform = "scale(1)";
+                }, 80);
+
+                if (lightboxCounter) {
+                    lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${activeFilteredImages.length}`;
+                }
                 lightbox.classList.add("active");
             }
 
