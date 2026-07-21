@@ -157,31 +157,47 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 6. İletişim formu validasyonu ve şık geri bildirim
+    // 6. İletişim formu validasyonu ve WhatsApp yönlendirmesi
     const leadForm = document.getElementById("lead-form");
     const responseMsg = document.getElementById("form-response-msg");
 
-    if (leadForm && responseMsg) {
+    if (leadForm) {
         leadForm.addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const name = document.getElementById("form-name").value.trim();
-            const service = document.getElementById("form-service").value;
+            const name = document.getElementById("form-name") ? document.getElementById("form-name").value.trim() : "";
+            const email = document.getElementById("form-email") ? document.getElementById("form-email").value.trim() : "";
+            const phone = document.getElementById("form-phone") ? document.getElementById("form-phone").value.trim() : "";
+            const serviceSelect = document.getElementById("form-service");
+            const serviceText = serviceSelect && serviceSelect.selectedIndex >= 0 ? serviceSelect.options[serviceSelect.selectedIndex].text : "";
+            const message = document.getElementById("form-message") ? document.getElementById("form-message").value.trim() : "";
 
-            responseMsg.style.display = "block";
-            responseMsg.style.backgroundColor = "rgba(16, 185, 129, 0.15)";
-            responseMsg.style.color = "#34d399";
-            responseMsg.style.border = "1px solid rgba(16, 185, 129, 0.4)";
-            responseMsg.style.borderRadius = "var(--radius-md)";
-            responseMsg.style.padding = "1rem";
-            responseMsg.style.marginTop = "1rem";
-            responseMsg.innerText = `Teşekkürler Sayın ${name}. ${service.toUpperCase()} alanındaki talebiniz alınmıştır. En kısa sürede sizinle iletişime geçeceğiz.`;
+            const whatsappPhone = "905446998282";
 
-            leadForm.reset();
+            const formattedMessage = `*Gencer Proje - Web İletişim Formu*\n\n` +
+                `👤 *Ad Soyad:* ${name}\n` +
+                `✉️ *E-Posta:* ${email}\n` +
+                `📞 *Telefon:* ${phone}\n` +
+                `🛠️ *Hizmet Alanı:* ${serviceText}\n` +
+                `📝 *Mesaj:* ${message}`;
+
+            const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(formattedMessage)}`;
+
+            if (responseMsg) {
+                responseMsg.style.display = "block";
+                responseMsg.style.backgroundColor = "rgba(16, 185, 129, 0.15)";
+                responseMsg.style.color = "#10B981";
+                responseMsg.style.border = "1px solid rgba(16, 185, 129, 0.4)";
+                responseMsg.style.borderRadius = "var(--radius-md)";
+                responseMsg.style.padding = "1rem";
+                responseMsg.style.marginTop = "1rem";
+                responseMsg.innerText = `Teşekkürler Sayın ${name}. Talebiniz oluşturuldu, WhatsApp'a yönlendiriliyorsunuz...`;
+            }
 
             setTimeout(() => {
-                responseMsg.style.display = "none";
-            }, 5000);
+                window.open(whatsappUrl, "_blank");
+                leadForm.reset();
+            }, 600);
         });
     }
 
