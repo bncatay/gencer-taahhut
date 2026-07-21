@@ -202,10 +202,12 @@
 
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox-modal">
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Önceki Görsel">&#10094;</button>
         <div class="lightbox-content">
             <button class="lightbox-close" id="lightbox-close">&times;</button>
             <img src="" alt="Büyük Görsel" class="lightbox-img" id="lightbox-img">
         </div>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Sonraki Görsel">&#10095;</button>
     </div>
 
     <!-- Back to Top Button -->
@@ -232,6 +234,10 @@
             const lightbox = document.getElementById("lightbox");
             const lightboxImg = document.getElementById("lightbox-img");
             const lightboxClose = document.getElementById("lightbox-close");
+            const lightboxPrev = document.getElementById("lightbox-prev");
+            const lightboxNext = document.getElementById("lightbox-next");
+            let currentLightboxIndex = 0;
+            let activeFilteredImages = [];
             
             // Generate list of 18 images
             const images = [];
@@ -264,35 +270,25 @@
 
             function renderGallery() {
                 gallery.innerHTML = "";
-                const filtered = images.filter(img => activeFilter === "hepsi" || img.category === activeFilter);
-                const visible = filtered.slice(0, currentLimit);
+                activeFilteredImages = images.filter(img => activeFilter === "hepsi" || img.category === activeFilter);
+                const visible = activeFilteredImages.slice(0, currentLimit);
 
-                visible.forEach(img => {
-                    let catLabel = 'İnşaat & Taahhüt';
-                    if (img.category === 'villa') catLabel = 'Lüks Villa Projesi';
-                    else if (img.category === 'icmekan') catLabel = 'Ofis & İç Mekan Tadilatı';
-
+                visible.forEach((img, idx) => {
                     const item = document.createElement("div");
                     item.className = "gallery-item";
                     item.setAttribute("data-aos", "fade-up");
-                    item.innerHTML = `
-                        <img loading="lazy" src="${img.src}" alt="${img.title}">
-                        <div class="gallery-item-overlay">
-                            <span class="gallery-item-category">${catLabel}</span>
-                            <h3 class="gallery-item-title">${img.title}</h3>
-                        </div>
-                    `;
+                    item.innerHTML = `<img loading="lazy" src="${img.src}" alt="${img.title}">`;
                     
                     item.addEventListener("click", () => {
-                        lightboxImg.src = img.src;
-                        lightbox.classList.add("active");
+                        currentLightboxIndex = idx;
+                        showLightboxImage(currentLightboxIndex);
                     });
 
                     gallery.appendChild(item);
                 });
 
                 // Show/hide load more button
-                if (currentLimit >= filtered.length) {
+                if (currentLimit >= activeFilteredImages.length) {
                     loadMoreBtn.style.display = "none";
                 } else {
                     loadMoreBtn.style.display = "inline-block";
@@ -317,6 +313,22 @@
             });
 
             // Close lightbox
+            function showLightboxImage(index) {
+                if (activeFilteredImages.length === 0) return;
+                currentLightboxIndex = (index + activeFilteredImages.length) % activeFilteredImages.length;
+                lightboxImg.src = activeFilteredImages[currentLightboxIndex].src;
+                lightbox.classList.add("active");
+            }
+
+            lightboxPrev.addEventListener("click", (e) => {
+                e.stopPropagation();
+                showLightboxImage(currentLightboxIndex - 1);
+            });
+
+            lightboxNext.addEventListener("click", (e) => {
+                e.stopPropagation();
+                showLightboxImage(currentLightboxIndex + 1);
+            });
             lightboxClose.addEventListener("click", () => {
                 lightbox.classList.remove("active");
             });
@@ -332,7 +344,6 @@
     </script>
 </body>
 </html>
-
 
 
 

@@ -192,10 +192,12 @@
 
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox-modal">
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Önceki Görsel">&#10094;</button>
         <div class="lightbox-content">
             <button class="lightbox-close" id="lightbox-close">&times;</button>
             <img src="" alt="Büyük Görsel" class="lightbox-img" id="lightbox-img">
         </div>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Sonraki Görsel">&#10095;</button>
     </div>
 
     <!-- Back to Top Button -->
@@ -222,6 +224,10 @@
             const lightbox = document.getElementById("lightbox");
             const lightboxImg = document.getElementById("lightbox-img");
             const lightboxClose = document.getElementById("lightbox-close");
+            const lightboxPrev = document.getElementById("lightbox-prev");
+            const lightboxNext = document.getElementById("lightbox-next");
+            let currentLightboxIndex = 0;
+            let activeFilteredImages = [];
             
             // Generate list of 40 images
             const images = [];

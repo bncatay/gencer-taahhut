@@ -1567,6 +1567,11 @@ footer::before {
     letter-spacing: 1px;
 }
 
+/* Hide text overlay on gallery items as requested */
+.gallery-item-overlay {
+    display: none !important;
+}
+
 /* Lightbox Modal */
 .lightbox-modal {
     position: fixed;
@@ -1614,6 +1619,46 @@ footer::before {
 
 .lightbox-close:hover {
     color: var(--color-primary);
+}
+
+/* Lightbox Prev/Next Navigation Buttons */
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    font-size: 2.2rem;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10002;
+    transition: var(--transition-normal);
+    user-select: none;
+    line-height: 1;
+}
+
+.lightbox-nav:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: var(--shadow-glow-primary);
+}
+
+.lightbox-prev {
+    left: 24px;
+}
+
+.lightbox-next {
+    right: 24px;
 }
 /* ==========================================
    COMPREHENSIVE MOBILE RESPONSIVENESS
