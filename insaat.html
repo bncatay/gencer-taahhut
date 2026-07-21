@@ -126,6 +126,7 @@
                 <button class="gallery-filter-btn active" data-filter="hepsi">Hepsi</button>
                 <button class="gallery-filter-btn" data-filter="villa">Lüks Villa Projeleri</button>
                 <button class="gallery-filter-btn" data-filter="yapi">İnşaat & Taahhüt</button>
+                <button class="gallery-filter-btn" data-filter="icmekan">Ofis & İç Mekan Tadilatı</button>
             </div>
 
             <!-- Galeri Grid -->
@@ -230,12 +231,15 @@
             const lightboxImg = document.getElementById("lightbox-img");
             const lightboxClose = document.getElementById("lightbox-close");
             
-            // Generate list of 11 images
+            // Generate list of 17 images
             const images = [];
-            for (let i = 1; i <= 11; i++) {
+            for (let i = 1; i <= 17; i++) {
                 let cat = "";
                 let catName = "";
-                if (i >= 5) {
+                if (i >= 12) {
+                    cat = "icmekan";
+                    catName = "Ofis & İç Mekan Tadilatı";
+                } else if (i >= 5) {
                     cat = "villa";
                     catName = "Lüks Villa İnşaatı";
                 } else {
@@ -259,13 +263,17 @@
                 const visible = filtered.slice(0, currentLimit);
 
                 visible.forEach(img => {
+                    let catLabel = 'İnşaat & Taahhüt';
+                    if (img.category === 'villa') catLabel = 'Lüks Villa Projesi';
+                    else if (img.category === 'icmekan') catLabel = 'Ofis & İç Mekan Tadilatı';
+
                     const item = document.createElement("div");
                     item.className = "gallery-item";
                     item.setAttribute("data-aos", "fade-up");
                     item.innerHTML = `
                         <img loading="lazy" src="${img.src}" alt="${img.title}">
                         <div class="gallery-item-overlay">
-                            <span class="gallery-item-category">${img.category === 'villa' ? 'Lüks Villa Projesi' : 'İnşaat & Taahhüt'}</span>
+                            <span class="gallery-item-category">${catLabel}</span>
                             <h3 class="gallery-item-title">${img.title}</h3>
                         </div>
                     `;
