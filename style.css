@@ -1148,44 +1148,6 @@ footer::before {
     color: var(--text-primary);
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.25rem;
-    margin-bottom: 4rem;
-}
-
-.gallery-item {
-    position: relative;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    aspect-ratio: 4/3;
-    border: 1px solid var(--color-border);
-    background-color: var(--bg-secondary);
-    transition: var(--transition-normal);
-    cursor: pointer;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition-normal);
-    filter: brightness(0.85);
-}
-
-.gallery-item:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-glow-primary);
-    border-color: rgba(6, 182, 212, 0.2);
-}
-
-.gallery-item:hover img {
-    transform: scale(1.06);
-    filter: brightness(1);
-}
-
-
 
 /* ==========================================
    WHATSAPP BUTTON
@@ -1653,3 +1615,152 @@ footer::before {
 .lightbox-close:hover {
     color: var(--color-primary);
 }
+/* ==========================================
+   COMPREHENSIVE MOBILE RESPONSIVENESS
+   ========================================== */
+
+/* --- TABLET & SMALL LAPTOP (max-width: 768px) --- */
+@media (max-width: 768px) {
+
+    /* Section spacing */
+    .page-content { padding: 60px 0; }
+    .page-header { padding-top: 120px; padding-bottom: 40px; }
+    .page-header h1 { font-size: 2.25rem; letter-spacing: -0.5px; }
+
+    .section-header { margin-bottom: 3rem; }
+    .section-title { font-size: 2rem; }
+    .section-tag { font-size: 0.85rem; letter-spacing: 2px; }
+
+    /* About teaser */
+    .about-teaser-section { padding: 48px 0; }
+    .about-teaser-content h2 { font-size: 2rem !important; }
+    .teaser-stats-row { grid-template-columns: repeat(3, 1fr) !important; gap: 1rem; }
+    .teaser-stats-row .stat-number { font-size: 2rem !important; }
+
+    /* Gallery grid: 2 columns on tablet */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+
+    .gallery-filters { gap: 0.5rem; margin-bottom: 2rem; }
+    .gallery-filter-btn { padding: 0.5rem 1.2rem; font-size: 0.8rem; }
+
+    /* Gallery section title */
+    .gallery-section-title { font-size: 1.5rem; }
+
+    /* Testimonials */
+    .testimonial-section { padding: 4rem 0; }
+    .testimonial-slides { height: auto; min-height: 220px; }
+    .testimonial-quote { font-size: 1.2rem; line-height: 1.6; }
+
+    /* FAQ */
+    #faq-section { padding: 60px 0 !important; }
+    .faq-question { font-size: 0.95rem !important; padding: 1.2rem !important; }
+
+    /* Footer */
+    footer { padding: 60px 0 30px 0; }
+    .footer-grid { gap: 2rem; }
+
+    /* Lightbox */
+    .lightbox-content { max-width: 95vw; }
+    .lightbox-close { top: -35px; font-size: 2rem; }
+
+    /* Load More button */
+    .btn { padding: 0.75rem 1.5rem; font-size: 0.9rem; }
+}
+
+/* --- MOBILE PHONES (max-width: 480px) --- */
+@media (max-width: 480px) {
+
+    /* Container padding */
+    .container { padding: 0 1rem; }
+
+    /* Page header */
+    .page-header { padding-top: 100px; padding-bottom: 32px; }
+    .page-header h1 { font-size: 1.85rem; letter-spacing: -0.3px; }
+    .breadcrumbs { font-size: 0.8rem; }
+
+    /* Section titles */
+    .section-title { font-size: 1.6rem; }
+    .section-tag { font-size: 0.8rem; letter-spacing: 1.5px; }
+    .section-header { margin-bottom: 2.5rem; }
+
+    /* About teaser */
+    .about-teaser-content h2 { font-size: 1.65rem !important; }
+    .teaser-stats-row { grid-template-columns: repeat(3, 1fr) !important; gap: 0.75rem; }
+    .teaser-stats-row .stat-number { font-size: 1.6rem !important; }
+
+    .teaser-logo-card {
+        width: 100% !important;
+        max-width: 260px !important;
+        height: auto !important;
+        aspect-ratio: 1/1 !important;
+        padding: 1.5rem !important;
+    }
+
+    /* Header logo */
+    .logo-text { font-size: 1.1rem !important; }
+    .logo-subtext { font-size: 0.55rem !important; letter-spacing: 1px !important; }
+    .logo-img { height: 32px !important; width: auto !important; }
+
+    /* Gallery grid: 1 column on phone */
+    .gallery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.85rem !important;
+    }
+
+    .gallery-filters { gap: 0.4rem; margin-bottom: 1.5rem; }
+    .gallery-filter-btn { padding: 0.45rem 1rem; font-size: 0.75rem; }
+    .gallery-section-title { font-size: 1.3rem; margin-bottom: 1.5rem; }
+
+    /* Hero images */
+    .hero-img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Page content */
+    .page-content { padding: 40px 0; }
+
+    /* Page grids */
+    .page-grid-2-col,
+    .page-grid-2-col-left-heavy,
+    .page-grid-2-col-right-heavy,
+    .vision-mission-grid {
+        gap: 1.5rem !important;
+        margin-bottom: 3rem !important;
+    }
+
+    /* Testimonials */
+    .testimonial-section { padding: 3rem 0; }
+    .testimonial-slides { height: auto; min-height: 200px; }
+    .testimonial-quote { font-size: 1rem; line-height: 1.6; margin-bottom: 1.25rem; }
+    .testimonial-author { font-size: 0.9rem; }
+
+    /* FAQ */
+    #faq-section { padding: 40px 0 !important; }
+    .faq-question span { font-size: 0.9rem !important; }
+
+    /* Footer */
+    footer { padding: 40px 0 24px 0; }
+    .footer-grid { gap: 1.5rem; margin-bottom: 3rem; }
+    .footer-heading { margin-bottom: 1.25rem; font-size: 0.8rem; }
+    .footer-brand p { font-size: 0.85rem; }
+    .footer-bottom { padding-top: 1.5rem; }
+
+    /* Buttons */
+    .btn { padding: 0.65rem 1.25rem; font-size: 0.85rem; min-height: 42px; }
+
+    /* Lightbox */
+    .lightbox-content { max-width: 98vw; }
+    .lightbox-img { border-radius: 8px; }
+    .lightbox-close { top: -30px; font-size: 1.8rem; }
+
+    /* Services grid */
+    .services-grid { gap: 1.25rem; }
+    .service-card { padding: 2rem 1.5rem; }
+    .service-card-icon { font-size: 2rem; }
+    .service-card h3 { font-size: 1.2rem; }
+}
+
