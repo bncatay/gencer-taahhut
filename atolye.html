@@ -132,7 +132,9 @@
                 <!-- Galeri Filtreleri -->
                 <div class="gallery-filters">
                     <button class="gallery-filter-btn active" data-filter="hepsi">Hepsi</button>
-                    <button class="gallery-filter-btn" data-filter="kurulum">Atölye Kurulumu & Donanım</button>
+                    <button class="gallery-filter-btn" data-filter="maker">Maker Atölyeleri</button>
+                    <button class="gallery-filter-btn" data-filter="robotik">Robotik Kodlama</button>
+                    <button class="gallery-filter-btn" data-filter="kurulum">Kurulum & Donanım</button>
                     <button class="gallery-filter-btn" data-filter="etkinlik">Eğitimler & Etkinlikler</button>
                 </div>
 
@@ -229,19 +231,35 @@
             const lightboxImg = document.getElementById("lightbox-img");
             const lightboxClose = document.getElementById("lightbox-close");
             
-            // Generate list of 20 images
-            const images = [];
+            // List of all 38 workshop photos (18 original + 20 newly imported)
+            const images = [
+                // Maker Atölyesi (9 adet)
+                { src: "maker-atolyesi/20d78113-3d91-4344-a38c-49911ff364b6.jpg", title: "Maker Atölyesi Uygulaması #1", category: "maker" },
+                { src: "maker-atolyesi/25a929b0-bbed-4f31-92c8-e13db45d497d.jpg", title: "Maker Atölyesi Uygulaması #2", category: "maker" },
+                { src: "maker-atolyesi/27aa4f41-5847-4352-8240-3c48a3c0f9e0.jpg", title: "Maker Atölyesi Uygulaması #3", category: "maker" },
+                { src: "maker-atolyesi/37adbe58-0831-4088-b52f-36aba3e39050.jpg", title: "Maker Atölyesi Uygulaması #4", category: "maker" },
+                { src: "maker-atolyesi/3fb821ca-630e-4ea4-b179-23d0b926ea27.jpg", title: "Maker Atölyesi Uygulaması #5", category: "maker" },
+                { src: "maker-atolyesi/4c110bfa-e8c7-40e1-97d4-2f3f54117584.jpg", title: "Maker Atölyesi Uygulaması #6", category: "maker" },
+                { src: "maker-atolyesi/528317a0-c91a-4967-8f74-597b475f284c.jpg", title: "Maker Atölyesi Uygulaması #7", category: "maker" },
+                { src: "maker-atolyesi/5c64b5cd-20e9-4e3a-a4df-6e352f0f863f.jpg", title: "Maker Atölyesi Uygulaması #8", category: "maker" },
+                { src: "maker-atolyesi/6e0ffde2-c8b6-400c-aa29-ff20057b8284.jpg", title: "Maker Atölyesi Uygulaması #9", category: "maker" },
+
+                // Robotik Kodlama Atölyesi (9 adet)
+                { src: "robotik-kodlama-atolyesi/18f12f8d-46dc-42d1-b04f-c421ecbd6ab7.jpg", title: "Robotik Kodlama Atölyesi #1", category: "robotik" },
+                { src: "robotik-kodlama-atolyesi/1c9bf0a4-a59e-4629-af88-bfd4a2cd1013.jpg", title: "Robotik Kodlama Atölyesi #2", category: "robotik" },
+                { src: "robotik-kodlama-atolyesi/2cb271bd-ec18-4315-aa08-13b96c34b417.jpg", title: "Robotik Kodlama Atölyesi #3", category: "robotik" },
+                { src: "robotik-kodlama-atolyesi/42e8a67f-b639-4e7f-a6a7-46efaf8a6954.jpg", title: "Robotik Kodlama Atölyesi #4", category: "robotik" },
+                { src: "robotik-kodlama-atolyesi/4bc42986-1289-4535-b8c2-4f8018818198.jpg", title: "Robotik Kodlama Atölyesi #5", category: "robotik" },
+                { src: "robotik-kodlama-atolyesi/565993cc-a615-49e5-9ce8-599997213f70.jpg", title: "Robotik Kodlama Atölyesi #6", category: "robotik" },
+                { src: "robotik-kodlama-atolyesi/59a8767c-ab97-47ee-aad9-5138960fd891.jpg", title: "Robotik Kodlama Atölyesi #7", category: "robotik" },
+                { src: "robotik-kodlama-atolyesi/5cbeec07-1567-4ff0-8165-0354fd958dce.jpg", title: "Robotik Kodlama Atölyesi #8", category: "robotik" },
+                { src: "robotik-kodlama-atolyesi/5f30fb58-37cc-4bfa-8ab3-6d91b8316bb4.jpg", title: "Robotik Kodlama Atölyesi #9", category: "robotik" }
+            ];
+
+            // Yeni Masaüstü fotoğrafları (20 adet)
             for (let i = 1; i <= 20; i++) {
-                let cat = "";
-                let catName = "";
-                if (i <= 5) {
-                    cat = "kurulum";
-                    catName = "Atölye Altyapı & Kurulum";
-                } else {
-                    cat = "etkinlik";
-                    catName = "Kodlama Eğitimi & Etkinlik";
-                }
-                
+                let cat = i <= 5 ? "kurulum" : "etkinlik";
+                let catName = i <= 5 ? "Atölye Altyapı & Kurulum" : "Kodlama Eğitimi & Etkinlik";
                 images.push({
                     src: `images/atolye/atolye-${i}.jpg`,
                     title: `${catName} #${i}`,
