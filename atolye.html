@@ -3,21 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maker ve Robotik Kodlama Atölyesi | Gencer Proje</title>
-    <meta name="description" content="Çocuklar için maker atölyesi, robotik kodlama eğitimleri, 3D yazıcı tasarımı ve algoritmik düşünme odaklı yeni nesil teknoloji eğitimleri.">
-    <link rel="stylesheet" href="style.css?v=20">
-    <!-- AOS Animation Library CSS -->
+    <title>Teknoloji & Tasarım Atölyeleri Kurulumu | Gencer Proje</title>
+    <meta name="description" content="Okullar ve kütüphaneler için robotik kodlama, 3D yazıcı ve maker ahşap tasarım atölyeleri anahtar teslim kurulum hizmeti.">
+    <link rel="stylesheet" href="style.css?v=21">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
 </head>
 <body>
 
-    <!-- Dinamik Arka Plan Işık Küreleri (Glow Orbs) -->
     <div class="glow-orb glow-orb-1"></div>
     <div class="glow-orb glow-orb-2"></div>
     <div class="glow-orb glow-orb-3"></div>
 
-    <!-- Preloader (Sayfa Yükleniyor Ekranı) -->
     <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.5s ease, visibility 0.5s ease;">
         <div style="width: 50px; height: 50px; border: 2px solid rgba(161,98,7,0.15); border-top: 2px solid #A16207; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; box-shadow: 0 0 20px rgba(161,98,7,0.1);"></div>
         <img loading="lazy" src="logo-icon.png" alt="Gencer Proje" style="height: 60px; width: auto; object-fit: contain;">
@@ -29,9 +25,7 @@
         </style>
     </div>
 
-    <!-- Header / Navigasyon -->
     <header id="main-header">
-        <!-- Scroll Progress Bar -->
         <div id="scroll-progress" style="position: absolute; bottom: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(to right, var(--color-primary), var(--color-secondary)); transition: width 0.1s ease; z-index: 1001;"></div>
         
         <div class="container nav-container">
@@ -63,74 +57,57 @@
         </div>
     </header>
 
-    <!-- Page Header -->
     <section class="page-header" id="workshop-header">
         <div class="container">
-            <h1>Atölyelerimiz</h1>
+            <h1>Atölye Kurulumlarımız</h1>
             <div class="breadcrumbs">
                 <a href="index.html">Ana Sayfa</a> &gt; <span>Atölyelerimiz</span>
             </div>
         </div>
     </section>
 
-    <!-- Page Content -->
     <section class="page-content" id="workshop-content-section">
         <div class="container">
             
-            <!-- Detaylı Açıklama -->
-            <div class="page-grid-2-col-right-heavy">
-                <div data-aos="fade-right" data-aos-duration="1000" style="width: 100%;">
-                    <img loading="lazy" src="images/slider-atolye.jpg" alt="Robotik Kodlama Atölyesi" style="width: 100%; height: 400px; object-fit: cover; border-radius: var(--radius-lg); border: 1px solid var(--color-border); display: block; margin: 0 auto; box-shadow: var(--shadow-lg);">
+            <div class="page-grid-2-col">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <span class="section-tag" style="color: var(--color-accent);">Geleceğin Üretim Alanları</span>
+                    <h2 style="font-size: 2.25rem; margin-bottom: 1.5rem;">Geleceği İmal Eden Nesiller İçin Anahtar Teslim Atölyeler</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Gencer Proje olarak, kütüphaneler, kamu kurumları ve okullar için yenilikçi teknoloji ve tasarım atölyeleri kuruyoruz. Çocukların ve gençlerin teorik bilgiyi pratiğe dökebilecekleri, 3D yazıcılardan ahşap işleme aletlerine kadar tüm donanımlara sahip konsept alanlar tasarlıyoruz.</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Mekanın fiziki keşfinden 3D mimari tasarıma, özel ergonomik mobilyaların kendi ahşap atölyemizde imalatından elektronik cihazların kurulumuna kadar tüm süreci uçtan uca yönetiyoruz.</p>
+                    <a href="iletisim.html" class="btn btn-primary" style="background-color: var(--color-accent); border-color: var(--color-accent); margin-top: 1rem;" id="btn-workshop-quote">Kurulum İçi Bilgi İste</a>
                 </div>
                 <div data-aos="fade-left" data-aos-duration="1000">
-                    <span class="section-tag" style="color: var(--color-accent);">Anahtar Teslim Projeler</span>
-                    <h2 style="font-size: 2.25rem; margin-bottom: 1.5rem;">Kütüphaneler ve Okullar İçin Teknoloji Sınıfları Tasarlıyoruz</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Gencer Proje olarak kütüphanelerin, okulların, belediyelerin ve bilim merkezlerinin ihtiyaç duyduğu robotik kodlama, 3D yazıcı tasarım ve ahşap tasarım atölyelerini (maker atölyesi) tasarlıyor, imal ediyor ve anahtar teslim kurulumunu gerçekleştiriyoruz. Çocukların geleceğin teknolojisini tasarlayabilmesi için gerekli olan tüm fiziksel alanları en baştan kuruyoruz.</p>
-                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Robotik kodlama setlerinden 3D yazıcılara, ahşap tasarım istasyonlarından özel atölye mobilyalarına kadar tüm altyapıyı kendi marangoz ve montaj gücümüzle üretiyor; kurulum sonrası teknik destek ve eğitim materyallerini de eksiksiz teslim ediyoruz.</p>
-                    <a href="iletisim.html" class="btn btn-primary" style="background-color: var(--color-accent); border-color: var(--color-accent);" id="btn-workshop-register">Atölye Kurulum Teklifi Alın</a>
+                    <img loading="lazy" src="images/slider-atolye.jpg" alt="Maker ve Teknoloji Atölyesi" class="hero-img" style="max-height: 400px; display: block; margin: 0 auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);" id="workshop-main-img">
                 </div>
             </div>
 
-            <!-- Eğitim Programları -->
             <div class="section-header">
-                <span class="section-tag" style="color: var(--color-accent);">Kurulum Kapsamımız</span>
-                <h2>Atölye Konseptlerimiz</h2>
+                <span class="section-tag" style="color: var(--color-accent);">Çözüm Konseptlerimiz</span>
+                <h2>Kurulumunu Yaptığımız Atölye Türleri</h2>
             </div>
 
-            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-                <!-- Robotik Kodlama -->
-                <div class="service-card atolye" id="work-coding">
-                    <h3>Robotik Kodlama Atölyeleri</h3>
-                    <p>Bilgisayar laboratuvarları, elektronik komponentler, Arduino test istasyonları, yazılım altyapısının eksiksiz kurulumu ve ergonomik çalışma masaları.</p>
+            <div class="services-grid">
+                <div class="service-card atolye" id="ws-maker">
+                    <h3>Maker & Ahşap Tasarım Atölyesi</h3>
+                    <p>Gençlerin el becerilerini geliştiren, güvenli ahşap işleme tezgahları ve matkap setleriyle donatılmış tasarım atölyeleri.</p>
                 </div>
-
-                <!-- 3D Yazıcı Tasarım -->
-                <div class="service-card atolye" id="work-maker">
-                    <h3>3D Yazıcı Tasarım Atölyeleri</h3>
-                    <p>Endüstriyel 3D yazıcılar, filament saklama üniteleri, Tinkercad/Blender uyumlu tasarım bilgisayarları ve üretim masalarının anahtar teslim kurulumu.</p>
+                <div class="service-card atolye" id="ws-coding">
+                    <h3>Robotik Kodlama Atölyesi</h3>
+                    <p>Arduino, Raspberry Pi ve zengin sensör kitleriyle desteklenmiş, ergonomik bilgisayar masalarına sahip kodlama sınıfları.</p>
                 </div>
-
-                <!-- Ahşap Tasarım -->
-                <div class="service-card atolye" id="work-carpentry">
-                    <h3>Ahşap Tasarım Atölyeleri<br>(Maker Atölyesi)</h3>
-                    <p>Güvenli ahşap işleme aletleri, el becerisi geliştirme tezgahları, CNC makineleri ve tamamen doğal ahşap mekanik kit tedariki.</p>
-                </div>
-
-                <!-- Diğer Atölyelerimiz -->
-                <div class="service-card atolye" id="work-other">
-                    <h3>Diğer Atölyelerimiz</h3>
-                    <p>Okulların ve kütüphanelerin özel ihtiyaçlarına göre tasarlanan diğer yenilikçi teknoloji ve tasarım sınıflarımızın anahtar teslim kurulumu.</p>
+                <div class="service-card atolye" id="ws-3d">
+                    <h3>3D Yazıcı & Modelleme Laboratuvarı</h3>
+                    <p>FDM ve reçineli 3D yazıcılar, filament depolama üniteleri ve havalandırmalı özel çalışma ortamları.</p>
                 </div>
             </div>
 
-            <!-- Galeri Bölümleri -->
             <div style="margin-top: 5rem;">
                 <div class="section-header">
                     <span class="section-tag" style="color: var(--color-accent);">Galeri</span>
                     <h2>Atölyelerimizden Kareler</h2>
                 </div>
 
-                <!-- Galeri Filtreleri -->
                 <div class="gallery-filters">
                     <button class="gallery-filter-btn active" data-filter="hepsi">Hepsi</button>
                     <button class="gallery-filter-btn" data-filter="maker">Maker Atölyeleri</button>
@@ -139,12 +116,8 @@
                     <button class="gallery-filter-btn" data-filter="etkinlik">Eğitimler & Etkinlikler</button>
                 </div>
 
-                <!-- Galeri Grid -->
-                <div class="gallery-grid" id="workshop-gallery">
-                    <!-- Dinamik olarak doldurulacak -->
-                </div>
+                <div class="gallery-grid" id="workshop-gallery"></div>
 
-                <!-- Daha Fazla Yükle Butonu -->
                 <div style="text-align: center; margin-top: 3rem; margin-bottom: 3rem;">
                     <button id="load-more-btn" class="btn btn-primary" style="background-color: var(--color-accent); border-color: var(--color-accent);">Daha Fazla Görsel Yükle</button>
                 </div>
@@ -153,19 +126,17 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container footer-grid">
             <div class="footer-brand">
                 <a href="index.html" class="logo-link">
                     <img loading="lazy" src="logo-icon.png" alt="Gencer Proje Footer Logo" class="logo-img">
                     <div class="logo-text-group">
-                    <div class="logo-text">Gencer <span>Proje</span></div>
-                    <div class="logo-subtext">Mobilya &bull; İnşaat &bull; Atölye</div>
-                </div>
+                        <div class="logo-text">Gencer <span>Proje</span></div>
+                        <div class="logo-subtext">Mobilya &bull; İnşaat &bull; Atölye</div>
+                    </div>
                 </a>
                 <p>İnşaat, mobilya ve teknoloji odaklı eğitim faaliyetlerimizle hayatın her alanında değer yaratmaya devam ediyoruz.</p>
-
             </div>
             
             <div>
@@ -200,8 +171,6 @@
         </div>
     </footer>
 
-    <!-- Lightbox Modal -->
-        <!-- Modern Lightbox Modal -->
     <div id="lightbox" class="lightbox-modal">
         <button class="lightbox-nav-btn lightbox-prev-btn" id="lightbox-prev" aria-label="Önceki Görsel">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
@@ -221,22 +190,16 @@
         <div class="lightbox-counter" id="lightbox-counter">1 / 1</div>
     </div>
 
-    <!-- Back to Top Button -->
     <button id="back-to-top" style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: var(--color-primary); color: white; border: none; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 999; box-shadow: var(--shadow-lg);" aria-label="Yukarı Çık">↑</button>
 
-    <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/905446998282" target="_blank" rel="noopener noreferrer" id="whatsapp-float" aria-label="WhatsApp ile İletişime Geçin">
         <img src="images/whatsapp.png" alt="WhatsApp">
     </a>
 
     <script src="app.js"></script>
-    <!-- AOS Animation Library JS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init({
-            once: true,
-            offset: 120
-        });
+        AOS.init({ once: true, offset: 120 });
 
         document.addEventListener("DOMContentLoaded", () => {
             const gallery = document.getElementById("workshop-gallery");
@@ -248,16 +211,11 @@
             const lightboxPrev = document.getElementById("lightbox-prev");
             const lightboxNext = document.getElementById("lightbox-next");
             const lightboxCounter = document.getElementById("lightbox-counter");
-            let currentLightboxIndex = 0;
-            let activeFilteredImages = [];
-            const lightboxPrev = document.getElementById("lightbox-prev");
-            const lightboxNext = document.getElementById("lightbox-next");
+            
             let currentLightboxIndex = 0;
             let activeFilteredImages = [];
             
-            // List of all 38 workshop photos (18 original + 20 newly imported)
             const images = [
-                // Maker Atölyesi (9 adet)
                 { src: "maker-atolyesi/20d78113-3d91-4344-a38c-49911ff364b6.jpg", title: "Maker Atölyesi Uygulaması #1", category: "maker" },
                 { src: "maker-atolyesi/25a929b0-bbed-4f31-92c8-e13db45d497d.jpg", title: "Maker Atölyesi Uygulaması #2", category: "maker" },
                 { src: "maker-atolyesi/27aa4f41-5847-4352-8240-3c48a3c0f9e0.jpg", title: "Maker Atölyesi Uygulaması #3", category: "maker" },
@@ -267,8 +225,6 @@
                 { src: "maker-atolyesi/528317a0-c91a-4967-8f74-597b475f284c.jpg", title: "Maker Atölyesi Uygulaması #7", category: "maker" },
                 { src: "maker-atolyesi/5c64b5cd-20e9-4e3a-a4df-6e352f0f863f.jpg", title: "Maker Atölyesi Uygulaması #8", category: "maker" },
                 { src: "maker-atolyesi/6e0ffde2-c8b6-400c-aa29-ff20057b8284.jpg", title: "Maker Atölyesi Uygulaması #9", category: "maker" },
-
-                // Robotik Kodlama Atölyesi (9 adet)
                 { src: "robotik-kodlama-atolyesi/18f12f8d-46dc-42d1-b04f-c421ecbd6ab7.jpg", title: "Robotik Kodlama Atölyesi #1", category: "robotik" },
                 { src: "robotik-kodlama-atolyesi/1c9bf0a4-a59e-4629-af88-bfd4a2cd1013.jpg", title: "Robotik Kodlama Atölyesi #2", category: "robotik" },
                 { src: "robotik-kodlama-atolyesi/2cb271bd-ec18-4315-aa08-13b96c34b417.jpg", title: "Robotik Kodlama Atölyesi #3", category: "robotik" },
@@ -280,7 +236,6 @@
                 { src: "robotik-kodlama-atolyesi/5f30fb58-37cc-4bfa-8ab3-6d91b8316bb4.jpg", title: "Robotik Kodlama Atölyesi #9", category: "robotik" }
             ];
 
-            // Yeni Masaüstü fotoğrafları (20 adet)
             for (let i = 1; i <= 20; i++) {
                 let cat = i <= 5 ? "kurulum" : "etkinlik";
                 let catName = i <= 5 ? "Atölye Altyapı & Kurulum" : "Kodlama Eğitimi & Etkinlik";
@@ -291,10 +246,11 @@
                 });
             }
 
-            let currentLimit = 6;
+            let currentLimit = 12;
             let activeFilter = "hepsi";
 
             function renderGallery() {
+                if (!gallery) return;
                 gallery.innerHTML = "";
                 activeFilteredImages = images.filter(img => activeFilter === "hepsi" || img.category === activeFilter);
                 const visible = activeFilteredImages.slice(0, currentLimit);
@@ -306,41 +262,19 @@
                     item.innerHTML = `<img loading="lazy" src="${img.src}" alt="${img.title}">`;
                     
                     item.addEventListener("click", () => {
-                        currentLightboxIndex = idx;
-                        showLightboxImage(currentLightboxIndex);
+                        showLightboxImage(idx);
                     });
 
                     gallery.appendChild(item);
                 });
 
-                // Show/hide load more button
-                if (currentLimit >= activeFilteredImages.length) {
-                    loadMoreBtn.style.display = "none";
-                } else {
-                    loadMoreBtn.style.display = "inline-block";
+                if (loadMoreBtn) {
+                    loadMoreBtn.style.display = currentLimit >= activeFilteredImages.length ? "none" : "inline-block";
                 }
             }
 
-            // Filter button clicks
-            filterBtns.forEach(btn => {
-                btn.addEventListener("click", () => {
-                    filterBtns.forEach(b => b.classList.remove("active"));
-                    btn.classList.add("active");
-                    activeFilter = btn.getAttribute("data-filter");
-                    currentLimit = 6; // Reset limit
-                    renderGallery();
-                });
-            });
-
-            // Load more click
-            loadMoreBtn.addEventListener("click", () => {
-                currentLimit += 6;
-                renderGallery();
-            });
-
-            // Close lightbox
             function showLightboxImage(index) {
-                if (activeFilteredImages.length === 0) return;
+                if (!activeFilteredImages || activeFilteredImages.length === 0) return;
                 currentLightboxIndex = (index + activeFilteredImages.length) % activeFilteredImages.length;
                 const targetImg = activeFilteredImages[currentLightboxIndex];
                 
@@ -359,34 +293,64 @@
                 lightbox.classList.add("active");
             }
 
-            lightboxPrev.addEventListener("click", (e) => {
-                e.stopPropagation();
-                showLightboxImage(currentLightboxIndex - 1);
+            filterBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    filterBtns.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+                    activeFilter = btn.getAttribute("data-filter");
+                    currentLimit = 12;
+                    renderGallery();
+                });
             });
 
-            lightboxNext.addEventListener("click", (e) => {
-                e.stopPropagation();
-                showLightboxImage(currentLightboxIndex + 1);
-            });
-            lightboxClose.addEventListener("click", () => {
-                lightbox.classList.remove("active");
-            });
-            lightbox.addEventListener("click", (e) => {
-                if (e.target === lightbox) {
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener("click", () => {
+                    currentLimit += 12;
+                    renderGallery();
+                });
+            }
+
+            if (lightboxPrev) {
+                lightboxPrev.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    showLightboxImage(currentLightboxIndex - 1);
+                });
+            }
+
+            if (lightboxNext) {
+                lightboxNext.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    showLightboxImage(currentLightboxIndex + 1);
+                });
+            }
+
+            if (lightboxClose) {
+                lightboxClose.addEventListener("click", () => {
+                    lightbox.classList.remove("active");
+                });
+            }
+
+            if (lightbox) {
+                lightbox.addEventListener("click", (e) => {
+                    if (e.target === lightbox) {
+                        lightbox.classList.remove("active");
+                    }
+                });
+            }
+
+            document.addEventListener("keydown", (e) => {
+                if (!lightbox || !lightbox.classList.contains("active")) return;
+                if (e.key === "ArrowLeft") {
+                    showLightboxImage(currentLightboxIndex - 1);
+                } else if (e.key === "ArrowRight") {
+                    showLightboxImage(currentLightboxIndex + 1);
+                } else if (e.key === "Escape") {
                     lightbox.classList.remove("active");
                 }
             });
-            
-            // Initial render
+
             renderGallery();
         });
     </script>
 </body>
 </html>
-
-
-</body>
-</html>
-
-
-

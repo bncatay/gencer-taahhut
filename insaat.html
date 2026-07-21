@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İnşaat Taahhüt ve Mühendislik Projeleri | Gencer Proje</title>
-    <meta name="description" content="Sağlam yapılar, modern mimari tasarımlar, anahtar teslim konut projeleri ve Gencer Proje inşaat mühendisliği uzmanlığı.">
-    <link rel="stylesheet" href="style.css?v=20">
-    <!-- AOS Animation Library CSS -->
+    <title>İnşaat & Taahhüt Projeleri | Gencer Proje</title>
+    <meta name="description" content="Statik mükemmellik, lüks villa inşaatları, anahtar teslim taahhüt projeleri ve modern mimarlık çözümleriyle Gencer Proje güvencesi.">
+    <link rel="stylesheet" href="style.css?v=21">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 
-    <!-- Dinamik Arka Plan Işık Küreleri (Glow Orbs) -->
     <div class="glow-orb glow-orb-1"></div>
     <div class="glow-orb glow-orb-2"></div>
     <div class="glow-orb glow-orb-3"></div>
 
-    <!-- Preloader (Sayfa Yükleniyor Ekranı) -->
     <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.5s ease, visibility 0.5s ease;">
         <div style="width: 50px; height: 50px; border: 2px solid rgba(161,98,7,0.15); border-top: 2px solid #A16207; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; box-shadow: 0 0 20px rgba(161,98,7,0.1);"></div>
         <img loading="lazy" src="logo-icon.png" alt="Gencer Proje" style="height: 60px; width: auto; object-fit: contain;">
@@ -28,9 +25,7 @@
         </style>
     </div>
 
-    <!-- Header / Navigasyon -->
     <header id="main-header">
-        <!-- Scroll Progress Bar -->
         <div id="scroll-progress" style="position: absolute; bottom: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(to right, var(--color-primary), var(--color-secondary)); transition: width 0.1s ease; z-index: 1001;"></div>
         
         <div class="container nav-container">
@@ -62,7 +57,6 @@
         </div>
     </header>
 
-    <!-- Page Header -->
     <section class="page-header" id="construction-header">
         <div class="container">
             <h1>İnşaat & Taahhüt</h1>
@@ -72,11 +66,9 @@
         </div>
     </section>
 
-    <!-- Page Content -->
     <section class="page-content" id="construction-content-section">
         <div class="container">
             
-            <!-- Detaylı Açıklama -->
             <div class="page-grid-2-col-left-heavy">
                 <div data-aos="fade-right" data-aos-duration="1000">
                     <span class="section-tag" style="color: var(--color-primary);">Güvenli Yapılar & Mühendislik Gücü</span>
@@ -90,39 +82,31 @@
                 </div>
             </div>
 
-            <!-- Faaliyetlerimiz Bölümü -->
             <div class="section-header">
                 <span class="section-tag">Hizmet Kapsamımız</span>
                 <h2>İnşaat Faaliyetlerimiz</h2>
             </div>
 
             <div class="services-grid">
-                <!-- Konut Projeleri -->
                 <div class="service-card insaat" id="const-residential">
                     <h3>Modern Konut Projeleri</h3>
                     <p>Güvenli, konforlu ve modern şehircilik anlayışıyla tasarlanmış anahtar teslim apartman, villa ve toplu konut inşaatları.</p>
                 </div>
-
-                <!-- Endüstriyel Yapılar -->
                 <div class="service-card insaat" id="const-industrial">
                     <h3>Endüstriyel Taahhüt</h3>
                     <p>Fabrika binaları, depo tesisleri, çelik konstrüksiyon yapılar ve işlevsel endüstriyel tesis projeleri.</p>
                 </div>
-
-                <!-- Renovasyon & Tadilat -->
                 <div class="service-card insaat" id="const-renovation">
                     <h3>Renovasyon & Restorasyon</h3>
                     <p>Mevcut yapıların statik olarak güçlendirilmesi, modernizasyonu ve dış cephe yenileme çalışmaları.</p>
                 </div>
             </div>
 
-            <!-- Proje Galerisi Bölümü -->
             <div class="section-header" style="margin-top: 5rem;">
                 <span class="section-tag">Uygulamalarımız</span>
                 <h2>İnşaat Projelerimiz</h2>
             </div>
 
-            <!-- Galeri Filtreleri -->
             <div class="gallery-filters">
                 <button class="gallery-filter-btn active" data-filter="hepsi">Hepsi</button>
                 <button class="gallery-filter-btn" data-filter="villa">Lüks Villa Projeleri</button>
@@ -130,17 +114,12 @@
                 <button class="gallery-filter-btn" data-filter="icmekan">Ofis & İç Mekan Tadilatı</button>
             </div>
 
-            <!-- Galeri Grid -->
-            <div class="gallery-grid" id="construction-gallery">
-                <!-- Dinamik olarak doldurulacak -->
-            </div>
+            <div class="gallery-grid" id="construction-gallery"></div>
 
-            <!-- Daha Fazla Yükle Butonu -->
             <div style="text-align: center; margin-top: 3rem; margin-bottom: 3rem;">
                 <button id="load-more-btn" class="btn btn-primary" style="background-color: var(--color-primary);">Daha Fazla Görsel Yükle</button>
             </div>
 
-            <!-- SEO İç Linkleme Bloğu -->
             <div style="background-color: var(--bg-secondary); border-radius: var(--radius-lg); padding: 3rem; margin-top: 5rem; text-align: center; border: 1px solid var(--color-border);" id="construction-seo-block">
                 <h3 style="margin-bottom: 1rem;">Yapılarımızın İç Mekan Çözümlerini İncelediniz mi?</h3>
                 <p style="color: var(--text-secondary); max-width: 800px; margin: 0 auto 2rem auto;">İnşa ettiğimiz projelerin mutfak, banyo ve tüm ahşap dekorasyon ihtiyaçlarını kendi mobilya imalat atölyemizde üreterek projelerimizde bütünsel bir tasarım kalitesi sunuyoruz.</p>
@@ -153,19 +132,17 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container footer-grid">
             <div class="footer-brand">
                 <a href="index.html" class="logo-link">
                     <img loading="lazy" src="logo-icon.png" alt="Gencer Proje Footer Logo" class="logo-img">
                     <div class="logo-text-group">
-                    <div class="logo-text">Gencer <span>Proje</span></div>
-                    <div class="logo-subtext">Mobilya &bull; İnşaat &bull; Atölye</div>
-                </div>
+                        <div class="logo-text">Gencer <span>Proje</span></div>
+                        <div class="logo-subtext">Mobilya &bull; İnşaat &bull; Atölye</div>
+                    </div>
                 </a>
                 <p>İnşaat, mobilya ve teknoloji odaklı eğitim faaliyetlerimizle hayatın her alanında değer yaratmaya devam ediyoruz.</p>
-
             </div>
             
             <div>
@@ -200,8 +177,6 @@
         </div>
     </footer>
 
-    <!-- Lightbox Modal -->
-        <!-- Modern Lightbox Modal -->
     <div id="lightbox" class="lightbox-modal">
         <button class="lightbox-nav-btn lightbox-prev-btn" id="lightbox-prev" aria-label="Önceki Görsel">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
@@ -221,22 +196,16 @@
         <div class="lightbox-counter" id="lightbox-counter">1 / 1</div>
     </div>
 
-    <!-- Back to Top Button -->
     <button id="back-to-top" style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: var(--color-primary); color: white; border: none; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 999; box-shadow: var(--shadow-lg);" aria-label="Yukarı Çık">↑</button>
 
-    <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/905446998282" target="_blank" rel="noopener noreferrer" id="whatsapp-float" aria-label="WhatsApp ile İletişime Geçin">
         <img src="images/whatsapp.png" alt="WhatsApp">
     </a>
 
     <script src="app.js"></script>
-    <!-- AOS Animation Library JS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init({
-            once: true,
-            offset: 120
-        });
+        AOS.init({ once: true, offset: 120 });
 
         document.addEventListener("DOMContentLoaded", () => {
             const gallery = document.getElementById("construction-gallery");
@@ -248,32 +217,14 @@
             const lightboxPrev = document.getElementById("lightbox-prev");
             const lightboxNext = document.getElementById("lightbox-next");
             const lightboxCounter = document.getElementById("lightbox-counter");
-            let currentLightboxIndex = 0;
-            let activeFilteredImages = [];
-            const lightboxPrev = document.getElementById("lightbox-prev");
-            const lightboxNext = document.getElementById("lightbox-next");
+            
             let currentLightboxIndex = 0;
             let activeFilteredImages = [];
             
-            // Generate list of 18 images
             const images = [];
             for (let i = 1; i <= 18; i++) {
-                let cat = "";
-                let title = "";
-                if (i === 18) {
-                    cat = "yapi";
-                    title = "Lalapaşa İlçe Halk Kütüphanesi Dış Cephe Projesi";
-                } else if (i >= 12) {
-                    cat = "icmekan";
-                    title = `Ofis & İç Mekan Tadilatı #${i - 11}`;
-                } else if (i >= 5) {
-                    cat = "villa";
-                    title = `Lüks Villa İnşaatı #${i - 4}`;
-                } else {
-                    cat = "yapi";
-                    title = `Taahhüt & Kaba İnşaat #${i}`;
-                }
-                
+                let cat = i === 18 ? "yapi" : (i >= 12 ? "icmekan" : (i >= 5 ? "villa" : "yapi"));
+                let title = i === 18 ? "Lalapaşa İlçe Halk Kütüphanesi Dış Cephe Projesi" : (i >= 12 ? `Ofis & İç Mekan Tadilatı #${i - 11}` : (i >= 5 ? `Lüks Villa İnşaatı #${i - 4}` : `Taahhüt & Kaba İnşaat #${i}`));
                 images.push({
                     src: `images/insaat/insaat-${i}.jpg`,
                     title: title,
@@ -281,10 +232,11 @@
                 });
             }
 
-            let currentLimit = 6;
+            let currentLimit = 12;
             let activeFilter = "hepsi";
 
             function renderGallery() {
+                if (!gallery) return;
                 gallery.innerHTML = "";
                 activeFilteredImages = images.filter(img => activeFilter === "hepsi" || img.category === activeFilter);
                 const visible = activeFilteredImages.slice(0, currentLimit);
@@ -296,41 +248,19 @@
                     item.innerHTML = `<img loading="lazy" src="${img.src}" alt="${img.title}">`;
                     
                     item.addEventListener("click", () => {
-                        currentLightboxIndex = idx;
-                        showLightboxImage(currentLightboxIndex);
+                        showLightboxImage(idx);
                     });
 
                     gallery.appendChild(item);
                 });
 
-                // Show/hide load more button
-                if (currentLimit >= activeFilteredImages.length) {
-                    loadMoreBtn.style.display = "none";
-                } else {
-                    loadMoreBtn.style.display = "inline-block";
+                if (loadMoreBtn) {
+                    loadMoreBtn.style.display = currentLimit >= activeFilteredImages.length ? "none" : "inline-block";
                 }
             }
 
-            // Filter button clicks
-            filterBtns.forEach(btn => {
-                btn.addEventListener("click", () => {
-                    filterBtns.forEach(b => b.classList.remove("active"));
-                    btn.classList.add("active");
-                    activeFilter = btn.getAttribute("data-filter");
-                    currentLimit = 6; // Reset limit
-                    renderGallery();
-                });
-            });
-
-            // Load more click
-            loadMoreBtn.addEventListener("click", () => {
-                currentLimit += 6;
-                renderGallery();
-            });
-
-            // Close lightbox
             function showLightboxImage(index) {
-                if (activeFilteredImages.length === 0) return;
+                if (!activeFilteredImages || activeFilteredImages.length === 0) return;
                 currentLightboxIndex = (index + activeFilteredImages.length) % activeFilteredImages.length;
                 const targetImg = activeFilteredImages[currentLightboxIndex];
                 
@@ -349,30 +279,64 @@
                 lightbox.classList.add("active");
             }
 
-            lightboxPrev.addEventListener("click", (e) => {
-                e.stopPropagation();
-                showLightboxImage(currentLightboxIndex - 1);
+            filterBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    filterBtns.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+                    activeFilter = btn.getAttribute("data-filter");
+                    currentLimit = 12;
+                    renderGallery();
+                });
             });
 
-            lightboxNext.addEventListener("click", (e) => {
-                e.stopPropagation();
-                showLightboxImage(currentLightboxIndex + 1);
-            });
-            lightboxClose.addEventListener("click", () => {
-                lightbox.classList.remove("active");
-            });
-            lightbox.addEventListener("click", (e) => {
-                if (e.target === lightbox) {
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener("click", () => {
+                    currentLimit += 12;
+                    renderGallery();
+                });
+            }
+
+            if (lightboxPrev) {
+                lightboxPrev.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    showLightboxImage(currentLightboxIndex - 1);
+                });
+            }
+
+            if (lightboxNext) {
+                lightboxNext.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    showLightboxImage(currentLightboxIndex + 1);
+                });
+            }
+
+            if (lightboxClose) {
+                lightboxClose.addEventListener("click", () => {
+                    lightbox.classList.remove("active");
+                });
+            }
+
+            if (lightbox) {
+                lightbox.addEventListener("click", (e) => {
+                    if (e.target === lightbox) {
+                        lightbox.classList.remove("active");
+                    }
+                });
+            }
+
+            document.addEventListener("keydown", (e) => {
+                if (!lightbox || !lightbox.classList.contains("active")) return;
+                if (e.key === "ArrowLeft") {
+                    showLightboxImage(currentLightboxIndex - 1);
+                } else if (e.key === "ArrowRight") {
+                    showLightboxImage(currentLightboxIndex + 1);
+                } else if (e.key === "Escape") {
                     lightbox.classList.remove("active");
                 }
             });
-            
-            // Initial render
+
             renderGallery();
         });
     </script>
 </body>
 </html>
-
-
-
