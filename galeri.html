@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proje Galerisi | Gencer Proje</title>
+    <meta name="description" content="Gencer Proje özel tasarım mobilya imalatı, lüks villa inşaatı ve teknoloji atölyesi kurulum projelerimizden oluşan kapsayıcı fotoğraf galerisi.">
+    <link rel="stylesheet" href="style.css?v=19">
+    <!-- AOS Animation Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+
+    <!-- Dinamik Arka Plan Işık Küreleri (Glow Orbs) -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+
+    <!-- Preloader (Sayfa Yükleniyor Ekranı) -->
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.5s ease, visibility 0.5s ease;">
+        <div style="width: 50px; height: 50px; border: 2px solid rgba(161,98,7,0.15); border-top: 2px solid #A16207; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; box-shadow: 0 0 20px rgba(161,98,7,0.1);"></div>
+        <img loading="lazy" src="logo-icon.png" alt="Gencer Proje" style="height: 60px; width: auto; object-fit: contain;">
+        <style>
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+    </div>
+
+    <!-- Header / Navigasyon -->
+    <header id="main-header">
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress" style="position: absolute; bottom: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(to right, var(--color-primary), var(--color-secondary)); transition: width 0.1s ease; z-index: 1001;"></div>
+        
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link" id="header-logo-link">
+                <img loading="lazy" src="logo-icon.png" alt="Gencer Proje Logo" class="logo-img" id="header-logo-img">
+                <div class="logo-text-group">
+                    <div class="logo-text" id="header-logo-text">Gencer <span>Proje</span></div>
+                    <div class="logo-subtext">Mobilya &bull; İnşaat &bull; Atölye</div>
+                </div>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link" id="nav-link-home">Ana Sayfa</a></li>
+                    <li><a href="hakkimizda.html" class="nav-link" id="nav-link-about">Hakkımızda</a></li>
+                    <li><a href="mobilya.html" class="nav-link" id="nav-link-furniture">Mobilya</a></li>
+                    <li><a href="insaat.html" class="nav-link" id="nav-link-construction">İnşaat</a></li>
+                    <li><a href="atolye.html" class="nav-link" id="nav-link-workshop">Atölyelerimiz</a></li>
+                    <li><a href="galeri.html" class="nav-link active" id="nav-link-gallery">Galeri</a></li>
+                    <li><a href="iletisim.html" class="nav-link" id="nav-link-contact">İletişim</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" id="hamburger-btn" aria-label="Menüyü Aç">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" id="gallery-header">
+        <div class="container">
+            <h1>Proje Galerisi</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Ana Sayfa</a> &gt; <span>Galeri</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content" id="gallery-content-section">
+        <div class="container">
+            
+            <div class="section-header">
+                <span class="section-tag">Tüm Portfolyo</span>
+                <h2>Tamamlanan Çalışmalarımız</h2>
+            </div>
+
+            <!-- Galeri Filtreleri -->
+            <div class="gallery-filters">
+                <button class="gallery-filter-btn active" data-filter="hepsi">Hepsi (96)</button>
+                <button class="gallery-filter-btn" data-filter="mobilya">Mobilya Tasarımları (40)</button>
+                <button class="gallery-filter-btn" data-filter="insaat">İnşaat Projeleri (18)</button>
+                <button class="gallery-filter-btn" data-filter="atolye">Atölye Kurulumları (38)</button>
+            </div>
+
+            <!-- Galeri Grid -->
+            <div class="gallery-grid" id="master-gallery">
+                <!-- Dinamik olarak doldurulacak -->
+            </div>
+
+            <!-- Daha Fazla Yükle Butonu -->
+            <div style="text-align: center; margin-top: 3rem; margin-bottom: 3rem;">
+                <button id="load-more-btn" class="btn btn-primary" style="background-color: var(--color-primary);">Daha Fazla Görsel Yükle</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo-link">
+                    <img loading="lazy" src="logo-icon.png" alt="Gencer Proje Footer Logo" class="logo-img">
+                    <div class="logo-text-group">
+                        <div class="logo-text">Gencer <span>Proje</span></div>
+                        <div class="logo-subtext">Mobilya &bull; İnşaat &bull; Atölye</div>
+                    </div>
+                </a>
+                <p>İnşaat, mobilya ve teknoloji odaklı eğitim faaliyetlerimizle hayatın her alanında değer yaratmaya devam ediyoruz.</p>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Hızlı Menü</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Hizmetlerimiz</h4>
+                <ul class="footer-links">
+                    <li><a href="mobilya.html">Özel Tasarım Mobilya</a></li>
+                    <li><a href="insaat.html">İnşaat & Taahhüt</a></li>
+                    <li><a href="atolye.html">Atölyelerimiz</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact-info">
+                <h4 class="footer-heading">İletişim Bilgileri</h4>
+                <p>📍 Karapürçek Mah. Yeşil Kuşak Cad. No:40, Altındağ / Ankara</p>
+                <p>📞 +90 (553) 507 06 06</p>
+                <p>✉️ gencerinsaat06@gmail.com</p>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Gencer Proje. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-modal">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">&times;</button>
+            <img src="" alt="Büyük Görsel" class="lightbox-img" id="lightbox-img">
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: var(--color-primary); color: white; border: none; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 999; box-shadow: var(--shadow-lg);" aria-label="Yukarı Çık">↑</button>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/905446998282" target="_blank" rel="noopener noreferrer" id="whatsapp-float" aria-label="WhatsApp ile İletişime Geçin">
+        <img src="images/whatsapp.png" alt="WhatsApp">
+    </a>
+
+    <script src="app.js"></script>
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 120
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const gallery = document.getElementById("master-gallery");
+            const loadMoreBtn = document.getElementById("load-more-btn");
+            const filterBtns = document.querySelectorAll(".gallery-filter-btn");
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const lightboxClose = document.getElementById("lightbox-close");
+            
+            const images = [];
+
+            // 1. Mobilya Fotoğrafları (40 adet)
+            for (let i = 1; i <= 40; i++) {
+                images.push({
+                    src: `images/mobilya/mobilya-${i}.jpg`,
+                    title: `Özel Tasarım Mobilya #${i}`,
+                    category: "mobilya",
+                    catLabel: "Mobilya"
+                });
+            }
+
+            // 2. İnşaat Fotoğrafları (18 adet)
+            for (let i = 1; i <= 18; i++) {
+                let title = i === 18 ? "Lalapaşa İlçe Halk Kütüphanesi Dış Cephe Projesi" : `İnşaat & Taahhüt Projesi #${i}`;
+                images.push({
+                    src: `images/insaat/insaat-${i}.jpg`,
+                    title: title,
+                    category: "insaat",
+                    catLabel: "İnşaat"
+                });
+            }
+
+            // 3. Atölye Fotoğrafları (38 adet)
+            // Maker Atölyesi (9 adet)
+            const makerFiles = [
+                "20d78113-3d91-4344-a38c-49911ff364b6.jpg",
+                "25a929b0-bbed-4f31-92c8-e13db45d497d.jpg",
+                "27aa4f41-5847-4352-8240-3c48a3c0f9e0.jpg",
+                "37adbe58-0831-4088-b52f-36aba3e39050.jpg",
+                "3fb821ca-630e-4ea4-b179-23d0b926ea27.jpg",
+                "4c110bfa-e8c7-40e1-97d4-2f3f54117584.jpg",
+                "528317a0-c91a-4967-8f74-597b475f284c.jpg",
+                "5c64b5cd-20e9-4e3a-a4df-6e352f0f863f.jpg",
+                "6e0ffde2-c8b6-400c-aa29-ff20057b8284.jpg"
+            ];
+            makerFiles.forEach((file, idx) => {
+                images.push({
+                    src: `maker-atolyesi/${file}`,
+                    title: `Maker Atölyesi #${idx + 1}`,
+                    category: "atolye",
+                    catLabel: "Atölye"
+                });
+            });
+
+            // Robotik Kodlama Atölyesi (9 adet)
+            const robotikFiles = [
+                "18f12f8d-46dc-42d1-b04f-c421ecbd6ab7.jpg",
+                "1c9bf0a4-a59e-4629-af88-bfd4a2cd1013.jpg",
+                "2cb271bd-ec18-4315-aa08-13b96c34b417.jpg",
+                "42e8a67f-b639-4e7f-a6a7-46efaf8a6954.jpg",
+                "4bc42986-1289-4535-b8c2-4f8018818198.jpg",
+                "565993cc-a615-49e5-9ce8-599997213f70.jpg",
+                "59a8767c-ab97-47ee-aad9-5138960fd891.jpg",
+                "5cbeec07-1567-4ff0-8165-0354fd958dce.jpg",
+                "5f30fb58-37cc-4bfa-8ab3-6d91b8316bb4.jpg"
+            ];
+            robotikFiles.forEach((file, idx) => {
+                images.push({
+                    src: `robotik-kodlama-atolyesi/${file}`,
+                    title: `Robotik Kodlama Atölyesi #${idx + 1}`,
+                    category: "atolye",
+                    catLabel: "Atölye"
+                });
+            });
+
+            // Masaüstü Atölye Görselleri (20 adet)
+            for (let i = 1; i <= 20; i++) {
+                images.push({
+                    src: `images/atolye/atolye-${i}.jpg`,
+                    title: `Atölye Kurulum & Etkinlik #${i}`,
+                    category: "atolye",
+                    catLabel: "Atölye"
+                });
+            }
+
+            let currentLimit = 12;
+            let activeFilter = "hepsi";
+
+            function renderGallery() {
+                gallery.innerHTML = "";
+                const filtered = images.filter(img => activeFilter === "hepsi" || img.category === activeFilter);
+                const visible = filtered.slice(0, currentLimit);
+
+                visible.forEach(img => {
+                    const item = document.createElement("div");
+                    item.className = "gallery-item";
+                    item.setAttribute("data-aos", "fade-up");
+                    item.innerHTML = `
+                        <img loading="lazy" src="${img.src}" alt="${img.title}">
+                        <div class="gallery-item-overlay">
+                            <span class="gallery-item-category">${img.catLabel}</span>
+                            <h3 class="gallery-item-title">${img.title}</h3>
+                        </div>
+                    `;
+                    
+                    item.addEventListener("click", () => {
+                        lightboxImg.src = img.src;
+                        lightbox.classList.add("active");
+                    });
+
+                    gallery.appendChild(item);
+                });
+
+                if (currentLimit >= filtered.length) {
+                    loadMoreBtn.style.display = "none";
+                } else {
+                    loadMoreBtn.style.display = "inline-block";
+                }
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    filterBtns.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+                    activeFilter = btn.getAttribute("data-filter");
+                    currentLimit = 12;
+                    renderGallery();
+                });
+            });
+
+            loadMoreBtn.addEventListener("click", () => {
+                currentLimit += 12;
+                renderGallery();
+            });
+
+            lightboxClose.addEventListener("click", () => {
+                lightbox.classList.remove("active");
+            });
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove("active");
+                }
+            });
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") {
+                    lightbox.classList.remove("active");
+                }
+            });
+
+            renderGallery();
+        });
+    </script>
+</body>
+</html>
