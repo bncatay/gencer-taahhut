@@ -1813,7 +1813,10 @@ footer::before {
         margin-bottom: 2.5rem !important;
     }
     .hero-feature-photos .feature-photo-card img {
-        height: 230px !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: 520px !important;
+        object-fit: contain !important;
     }
 
     /* Hero images */
