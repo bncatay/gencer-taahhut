@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proje Galerisi | Gencer Proje</title>
     <meta name="description" content="Gencer Proje özel tasarım mobilya imalatı, lüks villa inşaatı ve teknoloji atölyesi kurulum projelerimizden oluşan kapsayıcı fotoğraf galerisi.">
-    <link rel="stylesheet" href="style.css?v=30">
+    <link rel="stylesheet" href="style.css?v=31">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
@@ -184,8 +184,8 @@
             // 1. Mobilya Fotoğrafları (40 adet)
             for (let m = 1; m <= 40; m++) {
                 images.push({
-                    src: `images/mobilya/mobilya-${i}.jpg`,
-                    title: `Özel Tasarım Mobilya #${i}`,
+                    src: `images/mobilya/mobilya-${m}.jpg`,
+                    title: `Özel Tasarım Mobilya #${m}`,
                     category: "mobilya",
                     catLabel: "Mobilya"
                 });
@@ -193,9 +193,9 @@
 
             // 2. İnşaat Fotoğrafları (18 adet)
             for (let k = 1; k <= 18; k++) {
-                let title = i === 18 ? "Lalapaşa İlçe Halk Kütüphanesi Dış Cephe Projesi" : `İnşaat & Taahhüt Projesi #${i}`;
+                let title = k === 18 ? "Lalapaşa İlçe Halk Kütüphanesi Dış Cephe Projesi" : `İnşaat & Taahhüt Projesi #${k}`;
                 images.push({
-                    src: `images/insaat/insaat-${i}.jpg`,
+                    src: `images/insaat/insaat-${k}.jpg`,
                     title: title,
                     category: "insaat",
                     catLabel: "İnşaat"
@@ -245,8 +245,8 @@
 
             for (let a = 21; a <= 97; a++) {
                 images.push({
-                    src: `images/atolye/atolye-${i}.jpg`,
-                    title: `Atölye Kurulum & Etkinlik #${i}`,
+                    src: `images/atolye/atolye-${a}.jpg`,
+                    title: `Atölye Kurulum & Etkinlik #${a}`,
                     category: "atolye",
                     catLabel: "Atölye"
                 });
