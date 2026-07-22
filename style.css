@@ -1805,6 +1805,17 @@ footer::before {
     .gallery-filter-btn { padding: 0.45rem 1rem; font-size: 0.75rem; }
     .gallery-section-title { font-size: 1.3rem; margin-bottom: 1.5rem; }
 
+    /* Hero Feature Photos on Mobile */
+    .hero-feature-photos {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 2.5rem !important;
+    }
+    .hero-feature-photos .feature-photo-card img {
+        height: 230px !important;
+    }
+
     /* Hero images */
     .hero-img {
         max-width: 100% !important;
